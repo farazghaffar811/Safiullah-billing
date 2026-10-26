@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { DollarSign, ShieldCheck, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react';
 import { PILLARS } from '../data/billingData';
 
@@ -18,77 +17,68 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
   };
 
   return (
-    <section id="why-ehcs" className="py-20 sm:py-28 relative">
-      {/* Background soft ambient glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-azure-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-mint/10 rounded-full blur-3xl pointer-events-none -z-10" />
-
+    <section id="why-ehcs" className="py-16 sm:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-capsule border-azure-200/80 mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Why Choose Elite Health Care Services (EHCS)
             </span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy tracking-tight mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight mb-4">
             We Are Your Dedicated <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-azure-600 to-cyan-600 bg-clip-text text-transparent">
               Billing &amp; RCM Specialists
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
             We combine modern healthcare billing intelligence with genuine human attention, ensuring each decision protects your practice's cash flow and patient relationships.
           </p>
         </div>
 
         {/* 3 Core Pillar Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14">
-          {PILLARS.map((pillar, idx) => {
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+          {PILLARS.map((pillar) => {
             const IconComponent = getIcon(pillar.iconName);
             return (
-              <motion.div
+              <div
                 key={pillar.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="p-8 sm:p-9 rounded-3xl glass-panel glass-panel-hover flex flex-col justify-between relative overflow-hidden group border-white/80"
+                className="p-6 sm:p-7 rounded-3xl glass-panel flex flex-col justify-between"
               >
-                {/* Pillar Header with Badge */}
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-azure-600 to-cyan-400 p-0.5 shadow-md shadow-azure-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-azure-600 to-cyan-400 p-0.5 shadow-sm">
                       <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-azure-600">
-                        <IconComponent className="w-7 h-7" />
+                        <IconComponent className="w-6 h-6" />
                       </div>
                     </div>
-                    <span className="text-3xl font-black text-slate-200 group-hover:text-azure-200 transition-colors">
+                    <span className="text-2xl font-black text-slate-300">
                       {pillar.number}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-extrabold text-navy tracking-tight mb-2">
+                  <h3 className="text-xl font-extrabold text-navy tracking-tight mb-1.5">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs font-semibold text-azure-600 mb-4">
+                  <p className="text-xs font-semibold text-azure-600 mb-3">
                     {pillar.tagline}
                   </p>
 
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-5 font-normal">
                     {pillar.description}
                   </p>
 
                   {/* Bullet Points */}
-                  <div className="space-y-3 mb-8">
+                  <div className="space-y-2 mb-6">
                     {pillar.bulletPoints.map((point, pIdx) => (
-                      <div key={pIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-mint-500 shrink-0 mt-0.5" />
-                        <span className="text-xs text-slate-700 leading-snug font-medium">
+                      <div key={pIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-mint-500 shrink-0 mt-0.5" />
+                        <span className="text-xs text-slate-700 leading-snug">
                           {point}
                         </span>
                       </div>
@@ -96,23 +86,23 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
                   </div>
                 </div>
 
-                {/* Bottom Highlight Stat Card */}
-                <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+                {/* Bottom Highlight Stat */}
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <span className="text-2xl font-black text-navy">{pillar.stat}</span>
-                    <p className="text-[11px] font-semibold text-slate-500">{pillar.statLabel}</p>
+                    <span className="text-xl font-black text-navy">{pillar.stat}</span>
+                    <p className="text-[10px] font-semibold text-slate-500">{pillar.statLabel}</p>
                   </div>
 
                   <button
                     type="button"
                     onClick={onOpenAuditModal}
-                    className="w-10 h-10 rounded-full bg-azure-50 group-hover:bg-azure-600 text-azure-600 group-hover:text-white flex items-center justify-center transition-colors shadow-xs"
+                    className="w-8 h-8 rounded-full bg-azure-50 hover:bg-azure-600 text-azure-600 hover:text-white flex items-center justify-center transition-colors"
                     aria-label={`Learn more about ${pillar.title}`}
                   >
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -122,10 +112,10 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
           <button
             type="button"
             onClick={onOpenAuditModal}
-            className="inline-flex items-center gap-2 text-sm font-bold text-azure-600 hover:text-azure-700 group transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-azure-600 hover:text-azure-700 transition-colors"
           >
             <span>See how EHCS outperforms conventional in-house billing teams</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 

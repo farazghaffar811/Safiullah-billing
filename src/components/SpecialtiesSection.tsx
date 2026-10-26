@@ -1,16 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Stethoscope, 
   Search, 
-  Sparkles, 
-  CheckCircle2, 
   ArrowRight, 
-  Filter,
-  ShieldCheck,
   Tag
 } from 'lucide-react';
-import { SPECIALTIES, SpecialtyItem } from '../data/billingData';
+import { SPECIALTIES } from '../data/billingData';
 
 interface SpecialtiesSectionProps {
   onSelectSpecialtyForAudit?: (specialtyName: string) => void;
@@ -21,7 +16,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
   onSelectSpecialtyForAudit,
   onOpenAuditModal 
 }) => {
-  const [activeTab, setActiveTab] = useState<'all' | 'surgical' | 'primary' | 'diagnostics' | 'therapy'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'surgical' | 'primary' | 'diagnostics'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filterTabs = [
@@ -33,7 +28,6 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
 
   const filteredSpecialties = useMemo(() => {
     return SPECIALTIES.filter((item) => {
-      // Category filter
       let matchesTab = true;
       if (activeTab === 'all') {
         matchesTab = true;
@@ -43,7 +37,6 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
         matchesTab = item.category === activeTab;
       }
 
-      // Search filter
       const matchesSearch = 
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -62,39 +55,35 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
   };
 
   return (
-    <section id="specialties" className="py-20 sm:py-28 relative">
-      {/* Background soft ambient blur */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-azure-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-mint/10 rounded-full blur-3xl pointer-events-none -z-10" />
-
+    <section id="specialties" className="py-16 sm:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-capsule border-azure-200/80 mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
             <Stethoscope className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Cross-Disciplinary Medical Billing
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy tracking-tight mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight mb-3">
             Specialized Expertise for <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-azure-600 via-azure-500 to-cyan-500 bg-clip-text text-transparent">
               22 Healthcare Disciplines
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 font-normal">
+          <p className="text-xs sm:text-sm text-slate-600 font-normal">
             Every clinical specialty operates with unique modifier guidelines, CPT nuances, and payer fee schedules. Our AAPC-certified specialists protect every dollar.
           </p>
         </div>
 
-        {/* Filter Bar & Quick Search (Apple Segmented Control) */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 p-2 sm:p-2.5 rounded-2xl glass-capsule border-white/80 bg-white/70">
+        {/* Filter Bar & Quick Search */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8 p-2 rounded-2xl glass-card-static">
           
           {/* Segmented Control Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 w-full md:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1 w-full md:w-auto">
             {filterTabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -102,21 +91,14 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`relative px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 focus:outline-none flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                     isActive 
-                      ? 'text-azure-600' 
+                      ? 'bg-white text-azure-600 shadow-sm border border-slate-200/50' 
                       : 'text-slate-600 hover:text-navy hover:bg-white/40'
                   }`}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeSpecialtyPill"
-                      className="absolute inset-0 bg-white rounded-xl shadow-sm border border-slate-200/50 -z-10"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
                   <span>{tab.label}</span>
-                  <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-100 text-azure-700' : 'bg-slate-100 text-slate-500'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-50 text-azure-700' : 'bg-slate-100 text-slate-500'}`}>
                     {tab.count}
                   </span>
                 </button>
@@ -125,122 +107,97 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
           </div>
 
           {/* Search Input */}
-          <div className="relative w-full md:w-72">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <div className="relative w-full md:w-64">
+            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search specialty or CPT code..."
+              placeholder="Search specialty or code..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl glass-input placeholder-slate-400 text-slate-700"
+              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl glass-input placeholder-slate-400 text-slate-700"
             />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 font-bold"
-              >
-                Clear
-              </button>
-            )}
           </div>
         </div>
 
-        {/* 22 Specialties Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          <AnimatePresence>
-            {filteredSpecialties.map((spec, index) => (
-              <motion.div
-                key={spec.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.3 }}
-                className="p-6 sm:p-7 rounded-3xl glass-panel glass-panel-hover flex flex-col justify-between border-white/80 relative group"
-              >
-                <div>
-                  {/* Category Pill & Clean Claim Rate */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-bold text-azure-700 bg-azure-50 border border-azure-100 px-2.5 py-0.5 rounded-full">
-                      {spec.categoryLabel}
-                    </span>
-                    <span className="text-xs font-black text-mint-500 bg-mint-50 border border-mint-100 px-2 py-0.5 rounded-md flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-mint" />
-                      {spec.cleanClaimRate} Clean
-                    </span>
+        {/* 22 Specialties Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {filteredSpecialties.map((spec) => (
+            <div
+              key={spec.id}
+              className="p-5 sm:p-6 rounded-3xl glass-panel flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-bold text-azure-700 bg-azure-50 border border-azure-100 px-2 py-0.5 rounded-full">
+                    {spec.categoryLabel}
+                  </span>
+                  <span className="text-[11px] font-black text-mint-500 bg-mint-50 border border-mint-100 px-2 py-0.5 rounded-md flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+                    {spec.cleanClaimRate} Clean
+                  </span>
+                </div>
+
+                <h3 className="text-base font-bold text-navy tracking-tight mb-1.5">
+                  {spec.name}
+                </h3>
+
+                <p className="text-xs text-slate-600 leading-relaxed mb-3 font-normal">
+                  {spec.description}
+                </p>
+
+                {/* Codes */}
+                <div className="mb-3">
+                  <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                    <Tag className="w-3 h-3 text-slate-400" />
+                    <span>Coding Focus</span>
                   </div>
+                  <div className="flex flex-wrap gap-1">
+                    {spec.codes.map((code, cIdx) => (
+                      <span 
+                        key={cIdx}
+                        className="text-[10px] font-mono font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded"
+                      >
+                        {code}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-                  {/* Specialty Title */}
-                  <h3 className="text-lg font-bold text-navy group-hover:text-azure-600 transition-colors tracking-tight mb-2 flex items-center gap-2">
-                    <span>{spec.name}</span>
-                  </h3>
-
-                  {/* Clinical Description */}
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4 font-normal">
-                    {spec.description}
+                {/* EHCS Billing Advantage */}
+                <div className="p-2.5 rounded-xl bg-white/70 border border-slate-200/50 mb-4">
+                  <span className="text-[9px] font-bold text-azure-600 uppercase tracking-wider block mb-0.5">
+                    EHCS Advantage
+                  </span>
+                  <p className="text-xs font-semibold text-slate-700 leading-snug">
+                    {spec.keyHighlight}
                   </p>
-
-                  {/* Key Codes Sample Pills */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                      <Tag className="w-3 h-3 text-slate-400" />
-                      <span>Coding Protocols &amp; Focus</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {spec.codes.map((code, cIdx) => (
-                        <span 
-                          key={cIdx}
-                          className="text-[11px] font-mono font-medium text-slate-700 bg-slate-100/80 px-2 py-0.5 rounded-md"
-                        >
-                          {code}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Key Specialty Highlight */}
-                  <div className="p-3 rounded-2xl bg-white/70 border border-slate-200/50 mb-5">
-                    <span className="text-[10px] font-bold text-azure-600 uppercase tracking-wider block mb-0.5">
-                      EHCS Billing Advantage
-                    </span>
-                    <p className="text-xs font-semibold text-slate-700 leading-snug">
-                      {spec.keyHighlight}
-                    </p>
-                  </div>
                 </div>
+              </div>
 
-                {/* Card CTA Trigger */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-medium">AAPC Certified</span>
-                  <button
-                    type="button"
-                    onClick={() => handleAuditClick(spec.name)}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-azure-600 hover:text-azure-700 group/btn transition-colors"
-                  >
-                    <span>Audit This Specialty</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+              <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[10px] text-slate-400 font-medium">AAPC Certified</span>
+                <button
+                  type="button"
+                  onClick={() => handleAuditClick(spec.name)}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-azure-600 hover:text-azure-700 transition-colors"
+                >
+                  <span>Audit Specialty</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Empty state if search has no results */}
         {filteredSpecialties.length === 0 && (
-          <div className="text-center py-12 p-8 rounded-3xl glass-panel max-w-md mx-auto">
-            <Stethoscope className="w-10 h-10 text-slate-300 mx-auto mb-3" />
-            <h4 className="text-base font-bold text-navy mb-1">No matching specialty found</h4>
-            <p className="text-xs text-slate-500 mb-4">
-              We bill for all 22 medical disciplines. Try searching another specialty or reset your query.
-            </p>
+          <div className="text-center py-8 p-6 rounded-2xl glass-card-static max-w-sm mx-auto">
+            <p className="text-xs text-slate-600 mb-2">No matching specialty found for "{searchQuery}".</p>
             <button
               type="button"
               onClick={() => { setActiveTab('all'); setSearchQuery(''); }}
-              className="px-4 py-2 rounded-xl bg-azure-50 text-azure-600 text-xs font-bold hover:bg-azure-100 transition-colors"
+              className="text-xs font-bold text-azure-600 hover:underline"
             >
-              Reset Filters
+              Reset Search &amp; Filters
             </button>
           </div>
         )}

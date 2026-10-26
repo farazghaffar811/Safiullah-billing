@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
   UserCheck, 
   FileSpreadsheet, 
@@ -10,7 +9,6 @@ import {
   ArrowRight, 
   Clock, 
   CheckCircle2,
-  Sparkles,
   Workflow
 } from 'lucide-react';
 import { WORKFLOW_STEPS } from '../data/billingData';
@@ -35,123 +33,107 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
   };
 
   return (
-    <section id="workflow" className="py-20 sm:py-28 relative">
-      {/* Background soft ambient blur */}
-      <div className="absolute top-1/2 left-1/3 w-[550px] h-[550px] bg-gradient-to-tr from-azure-400/10 via-cyan-300/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-
+    <section id="workflow" className="py-16 sm:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-capsule border-azure-200/80 mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
             <Workflow className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Battle-Tested Revenue Engineering
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy tracking-tight mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight mb-3">
             The 6-Step RCM <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-azure-600 to-cyan-500 bg-clip-text text-transparent">
               Revenue Acceleration Workflow
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 font-normal">
+          <p className="text-xs sm:text-sm text-slate-600 font-normal">
             A synchronized, airtight lifecycle designed to accelerate cash flow velocity, eliminate denial lag, and maintain audit-proof billing compliance.
           </p>
         </div>
 
         {/* 6 Steps Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {WORKFLOW_STEPS.map((stepItem, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {WORKFLOW_STEPS.map((stepItem) => {
             const IconComponent = getStepIcon(stepItem.iconName);
-            const isHovered = activeStep === stepItem.step;
+            const isSelected = activeStep === stepItem.step;
 
             return (
-              <motion.div
+              <div
                 key={stepItem.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 onMouseEnter={() => setActiveStep(stepItem.step)}
-                className={`p-7 rounded-3xl glass-panel transition-all duration-300 relative group flex flex-col justify-between border-white/80 ${
-                  isHovered 
-                    ? 'bg-white/90 shadow-[0_20px_50px_rgba(35,139,238,0.16)] -translate-y-1.5 border-white' 
-                    : 'hover:bg-white/80 hover:shadow-lg'
+                className={`p-6 rounded-3xl glass-panel transition-all flex flex-col justify-between ${
+                  isSelected ? 'border-white bg-white/85 shadow-md' : ''
                 }`}
               >
                 <div>
                   {/* Step badge & SLA */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex items-center gap-2">
-                      <span className="w-8 h-8 rounded-xl bg-azure-600 text-white font-black text-xs flex items-center justify-center shadow-sm shadow-azure-500/30">
-                        0{stepItem.step}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-6 h-6 rounded-lg bg-azure-600 text-white font-bold text-xs flex items-center justify-center">
+                        {stepItem.step}
                       </span>
-                      <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
+                      <span className="text-xs font-bold uppercase text-azure-600">
                         Stage 0{stepItem.step}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 bg-slate-100/80 px-2.5 py-1 rounded-full">
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
                       <Clock className="w-3 h-3 text-azure-600" />
                       <span>{stepItem.sla}</span>
                     </div>
                   </div>
 
                   {/* Icon & Title */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-azure-50 text-azure-600 flex items-center justify-center shrink-0 group-hover:bg-azure-500 group-hover:text-white transition-colors duration-300">
-                      <IconComponent className="w-5 h-5" />
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-azure-50 text-azure-600 flex items-center justify-center shrink-0">
+                      <IconComponent className="w-4 h-4" />
                     </div>
-                    <h3 className="text-lg font-bold text-navy group-hover:text-azure-600 transition-colors leading-snug">
+                    <h3 className="text-base font-bold text-navy leading-snug">
                       {stepItem.title}
                     </h3>
                   </div>
 
-                  {/* Short Desc & Description */}
-                  <p className="text-xs font-semibold text-slate-700 mb-2">
+                  <p className="text-xs font-semibold text-slate-700 mb-1.5">
                     {stepItem.shortDesc}
                   </p>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal mb-5">
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal mb-4">
                     {stepItem.description}
                   </p>
                 </div>
 
-                {/* Bottom Impact Note */}
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
+                <div className="pt-2.5 border-t border-slate-100 flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-mint-500 shrink-0" />
                   <span className="text-[11px] font-semibold text-slate-600">
                     {stepItem.focus}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Transition Summary Capsule */}
-        <div className="p-6 sm:p-8 rounded-3xl glass-capsule border-white/80 bg-white/75 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-mint-50 text-mint-500 flex items-center justify-center shrink-0">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-base font-bold text-navy">7 to 14 Days Seamless Transition</h4>
-              <p className="text-xs text-slate-500">
-                Zero interruption to existing billing streams. Our team integrates directly with your clearinghouse and EHR login.
-              </p>
-            </div>
+        <div className="p-5 sm:p-6 rounded-2xl glass-card-static flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-center md:text-left">
+            <h4 className="text-sm font-bold text-navy">7 to 14 Days Seamless Transition</h4>
+            <p className="text-xs text-slate-500">
+              Zero interruption to existing billing streams. Direct EHR/clearinghouse integration.
+            </p>
           </div>
 
           <button
             type="button"
             onClick={onOpenAuditModal}
-            className="px-6 py-3 rounded-2xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-azure-500/25 transition-all flex items-center gap-2 shrink-0 active:scale-95"
+            className="px-4 py-2 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-1.5 shrink-0"
           >
             <span>Review Transition Plan</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
