@@ -78,23 +78,23 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
           </p>
         </div>
 
-        {/* 2-Column Neu-Glass Container */}
+        {/* 2-Column Spatial Clay + VisionOS Midnight Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-5xl mx-auto">
           
           {/* Controls Column (Left) */}
-          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl neu-glass-card-static flex flex-col justify-between">
+          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl spatial-stage flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-slate-200/60 mb-5">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Step 1: Practice Metrics
                 </span>
-                <span className="text-[10px] font-bold text-azure-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
+                <span className="text-[10px] font-bold text-azure-600 spatial-pill px-2.5 py-0.5 rounded-full">
                   Live Calculator
                 </span>
               </div>
 
               {/* Slider 1: Monthly Practice Volume */}
-              <div className="mb-6 p-4 rounded-2xl neu-glass-inset">
+              <div className="mb-6 p-4 rounded-2xl spatial-inset">
                 <div className="flex items-center justify-between mb-2">
                   <label htmlFor="volume-slider" className="text-xs font-bold text-navy">
                     Monthly Billing Volume
@@ -132,7 +132,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                       className={`text-[11px] px-2.5 py-1 rounded-full font-semibold transition-all ${
                         monthlyVolume === preset.value
                           ? 'bg-azure-600 text-white shadow-xs'
-                          : 'neu-glass-pill hover:text-azure-600 text-slate-600'
+                          : 'spatial-pill hover:text-azure-600 text-slate-600'
                       }`}
                     >
                       {preset.label}
@@ -142,7 +142,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
               </div>
 
               {/* Slider 2: Current Denial Rate */}
-              <div className="mb-4 p-4 rounded-2xl neu-glass-inset">
+              <div className="mb-4 p-4 rounded-2xl spatial-inset">
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <label htmlFor="denial-slider" className="text-xs font-bold text-navy block">
@@ -178,7 +178,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             </div>
 
             {/* Reassurance Note */}
-            <div className="p-3 rounded-2xl neu-glass-pill flex items-start gap-2.5 mt-2">
+            <div className="p-3 rounded-2xl spatial-pill flex items-start gap-2.5 mt-2">
               <ShieldCheck className="w-4 h-4 text-azure-600 shrink-0 mt-0.5" />
               <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
                 Calibrated against EHCS historical performance across 1,200+ practices and AAPC industry benchmarks.
@@ -186,8 +186,8 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             </div>
           </div>
 
-          {/* Results Column (Right: VisionOS Midnight Neumorphic Glass) */}
-          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl neu-glass-dark text-white flex flex-col justify-between">
+          {/* Results Column (Right: VisionOS Midnight Spatial Glass) */}
+          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl spatial-dark text-white flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                 <div>

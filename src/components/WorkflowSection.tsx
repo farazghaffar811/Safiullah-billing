@@ -57,7 +57,7 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
           </p>
         </div>
 
-        {/* 6 Steps Timeline Grid with Raised Neu-Glass Cards */}
+        {/* 6 Steps Timeline Grid with Raised Spatial Clay Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {WORKFLOW_STEPS.map((stepItem) => {
             const IconComponent = getStepIcon(stepItem.iconName);
@@ -67,7 +67,7 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
               <div
                 key={stepItem.step}
                 onMouseEnter={() => setActiveStep(stepItem.step)}
-                className={`p-6 rounded-3xl neu-glass-card transition-all flex flex-col justify-between ${
+                className={`p-6 rounded-3xl spatial-card clay-azure transition-all flex flex-col justify-between ${
                   isSelected ? 'border-white bg-white/95 shadow-lg -translate-y-1' : ''
                 }`}
               >
@@ -83,7 +83,7 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1 text-[10px] font-bold text-slate-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-slate-600 spatial-pill px-2.5 py-0.5 rounded-full">
                       <Clock className="w-3 h-3 text-azure-600" />
                       <span>{stepItem.sla}</span>
                     </div>
@@ -91,7 +91,7 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
 
                   {/* Icon & Title */}
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-9 h-9 rounded-xl neu-glass-icon flex items-center justify-center text-azure-600 shrink-0">
+                    <div className="w-9 h-9 rounded-xl spatial-icon flex items-center justify-center text-azure-600 shrink-0">
                       <IconComponent className="w-4 h-4" />
                     </div>
                     <h3 className="text-base font-bold text-navy leading-snug">
@@ -119,7 +119,7 @@ export const WorkflowSection: React.FC<WorkflowSectionProps> = ({ onOpenAuditMod
         </div>
 
         {/* Transition Summary Capsule */}
-        <div className="p-5 sm:p-6 rounded-3xl neu-glass-card-static flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 rounded-3xl spatial-stage flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
             <h4 className="text-sm font-bold text-navy">7 to 14 Days Seamless Transition</h4>
             <p className="text-xs text-slate-500">

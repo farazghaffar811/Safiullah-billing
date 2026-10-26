@@ -29,18 +29,18 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenAuditMod
         <button
           type="button"
           onClick={scrollToTop}
-          className="pointer-events-auto w-10 h-10 rounded-full neu-glass-button text-navy flex items-center justify-center transition-all active:scale-95 focus:outline-none"
+          className="pointer-events-auto w-10 h-10 rounded-full spatial-button text-navy flex items-center justify-center transition-all active:scale-95 focus:outline-none"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-4 h-4 text-azure-600" />
         </button>
       )}
 
-      {/* Floating Neu-Glass Action Capsule */}
-      <div className="pointer-events-auto flex items-center gap-1.5 p-1 rounded-full neu-glass-nav">
+      {/* Floating Spatial Clay Action Capsule */}
+      <div className="pointer-events-auto flex items-center gap-1.5 p-1 rounded-full spatial-nav animate-spatial-pulse">
         <a
           href={`tel:${COMPANY_INFO.phone.replace(/[^0-9+]/g, '')}`}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy hover:text-azure-600 neu-glass-pill transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy hover:text-azure-600 spatial-pill clay-azure transition-colors"
           title="Direct 24/7 Phone Helpline"
         >
           <span className="relative flex h-2 w-2">

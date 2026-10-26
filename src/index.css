@@ -8,176 +8,305 @@
   }
 
   body {
-    /* Soft clinical off-white / light slate canvas optimal for Neumorphic shadows */
+    /* VisionOS Spatial canvas: soft clinical ambient space with volumetric illumination */
     background-color: #EEF4F9;
     background-image: 
-      radial-gradient(circle at 12% 8%, rgba(35, 139, 238, 0.16) 0%, transparent 45%),
-      radial-gradient(circle at 88% 14%, rgba(0, 208, 132, 0.12) 0%, transparent 45%),
-      radial-gradient(circle at 50% 32%, rgba(237, 246, 252, 0.9) 0%, transparent 55%),
-      radial-gradient(circle at 82% 58%, rgba(35, 139, 238, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 15% 78%, rgba(0, 208, 132, 0.10) 0%, transparent 50%),
-      radial-gradient(circle at 50% 92%, rgba(6, 27, 80, 0.08) 0%, transparent 60%);
+      radial-gradient(circle at 14% 10%, rgba(35, 139, 238, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 86% 15%, rgba(0, 208, 132, 0.14) 0%, transparent 45%),
+      radial-gradient(circle at 50% 35%, rgba(237, 246, 252, 0.92) 0%, transparent 55%),
+      radial-gradient(circle at 80% 62%, rgba(35, 139, 238, 0.13) 0%, transparent 50%),
+      radial-gradient(circle at 18% 80%, rgba(0, 208, 132, 0.11) 0%, transparent 50%),
+      radial-gradient(circle at 50% 95%, rgba(6, 27, 80, 0.08) 0%, transparent 60%);
     background-attachment: fixed;
     color: #1E293B;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    perspective: 1200px;
   }
 }
 
 /* ==========================================================================
-   60% NEUMORPHISM + 40% GLASSMORPHISM (NEU-GLASS HYBRID DESIGN SYSTEM)
-   Soft tactile extrusion + Crystal frosted translucency
+   FLAGSHIP DESIGN SYSTEM: SPATIAL UI + CLAYMORPHISM + NEUMORPHISM + GLASS
+   - Spatial UI (VisionOS 3D z-depth, volumetric specular rim, suspended elevation)
+   - Claymorphism (3D pillowy extrusion, colored matching drop shadows, soft matte touch)
+   - Neumorphism (60% tactile dual light/dark shadows, debossed trays, sculpted insets)
+   - Glassmorphism (refractive frosted glass, 24-28px blur, specular highlight borders)
    ========================================================================== */
 
-/* 1. Raised Neu-Glass Master Card */
+/* 1. Spatial Clay Master Card (Standard Interactive Cards) */
+.spatial-card,
+.clay-card,
 .neu-glass-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82) 0%, rgba(238, 245, 251, 0.65) 100%);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 
-    -8px -8px 24px 0 rgba(255, 255, 255, 0.95),
-    10px 14px 28px -4px rgba(6, 27, 80, 0.09),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 1);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(238, 246, 253, 0.72) 100%);
+  backdrop-filter: blur(26px) saturate(200%);
+  -webkit-backdrop-filter: blur(26px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  box-shadow:
+    0 3px 0px rgba(6, 27, 80, 0.04),
+    0 6px 0px rgba(6, 27, 80, 0.05),
+    0 12px 24px -4px rgba(6, 27, 80, 0.11),
+    -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(6, 27, 80, 0.04);
+  transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
 }
 
+.spatial-card:hover,
+.clay-card:hover,
 .neu-glass-card:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(242, 248, 253, 0.8) 100%);
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 
-    -10px -10px 30px 0 rgba(255, 255, 255, 1),
-    14px 20px 36px -4px rgba(35, 139, 238, 0.16),
-    inset 0 2px 2px 0 rgba(255, 255, 255, 1);
-  transform: translateY(-3px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 249, 255, 0.85) 100%);
+  border-color: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 4px 0px rgba(6, 27, 80, 0.04),
+    0 8px 0px rgba(6, 27, 80, 0.06),
+    0 22px 40px -8px rgba(35, 139, 238, 0.20),
+    -8px -8px 24px 0 rgba(255, 255, 255, 1),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 5px 0 rgba(35, 139, 238, 0.05);
+  transform: translateY(-5px) translateZ(8px);
 }
 
-/* 2. Static Raised Neu-Glass Card (for forms, calculators, hero stage) */
+/* 2. Azure Spatial Clay (Medical Azure focal card) */
+.clay-azure,
+.spatial-azure {
+  background: linear-gradient(145deg, rgba(240, 248, 255, 0.94) 0%, rgba(225, 241, 254, 0.82) 100%);
+  border-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 3px 0px rgba(35, 139, 238, 0.06),
+    0 6px 0px rgba(35, 139, 238, 0.08),
+    0 14px 28px -4px rgba(35, 139, 238, 0.18),
+    -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(35, 139, 238, 0.07);
+}
+
+.clay-azure:hover,
+.spatial-azure:hover {
+  box-shadow:
+    0 4px 0px rgba(35, 139, 238, 0.07),
+    0 8px 0px rgba(35, 139, 238, 0.10),
+    0 22px 42px -6px rgba(35, 139, 238, 0.26),
+    -8px -8px 24px 0 rgba(255, 255, 255, 1),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 5px 0 rgba(35, 139, 238, 0.08);
+}
+
+/* 3. Mint Spatial Clay (Financial clean rate & ROI metrics) */
+.clay-mint,
+.spatial-mint {
+  background: linear-gradient(145deg, rgba(238, 251, 246, 0.94) 0%, rgba(217, 245, 234, 0.82) 100%);
+  border-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 3px 0px rgba(0, 208, 132, 0.06),
+    0 6px 0px rgba(0, 208, 132, 0.08),
+    0 14px 28px -4px rgba(0, 208, 132, 0.18),
+    -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(0, 208, 132, 0.07);
+}
+
+.clay-mint:hover,
+.spatial-mint:hover {
+  box-shadow:
+    0 4px 0px rgba(0, 208, 132, 0.07),
+    0 8px 0px rgba(0, 208, 132, 0.10),
+    0 22px 42px -6px rgba(0, 208, 132, 0.26),
+    -8px -8px 24px 0 rgba(255, 255, 255, 1),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 5px 0 rgba(0, 208, 132, 0.08);
+}
+
+/* 4. Navy Spatial Clay */
+.clay-navy,
+.spatial-navy {
+  background: linear-gradient(145deg, rgba(240, 244, 251, 0.94) 0%, rgba(226, 233, 244, 0.84) 100%);
+  border-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 3px 0px rgba(6, 27, 80, 0.06),
+    0 6px 0px rgba(6, 27, 80, 0.08),
+    0 14px 28px -4px rgba(6, 27, 80, 0.15),
+    -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(6, 27, 80, 0.06);
+}
+
+/* 5. Spatial Stage Card (Hero Stage, ROI Calculator, Form Containers) */
+.spatial-stage,
+.clay-stage,
 .neu-glass-card-static {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(238, 245, 251, 0.7) 100%);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    -10px -10px 28px 0 rgba(255, 255, 255, 0.95),
-    12px 16px 32px -4px rgba(6, 27, 80, 0.09),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 246, 253, 0.80) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.96);
+  border-radius: 32px;
+  box-shadow:
+    0 4px 0px rgba(6, 27, 80, 0.04),
+    0 8px 0px rgba(6, 27, 80, 0.05),
+    0 12px 0px rgba(6, 27, 80, 0.03),
+    0 22px 48px -8px rgba(6, 27, 80, 0.14),
+    -8px -8px 24px 0 rgba(255, 255, 255, 0.98),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 5px 0 rgba(6, 27, 80, 0.04);
+  transform: translateZ(0);
 }
 
-/* 3. Sunken / Carved Neu-Glass Inset (Inputs, search, trays, recessed tracks) */
+/* 6. Carved Sunken Inset Tray (Inputs, sparkline cavities, bullet containers) */
+.spatial-inset,
+.clay-inset,
 .neu-glass-inset {
-  background: rgba(232, 241, 249, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 
-    inset 3px 3px 7px 0 rgba(6, 27, 80, 0.08),
-    inset -3px -3px 7px 0 rgba(255, 255, 255, 0.95);
+  background: linear-gradient(145deg, rgba(228, 238, 248, 0.72) 0%, rgba(214, 229, 244, 0.58) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 3px 3px 8px 0 rgba(6, 27, 80, 0.09),
+    inset -3px -3px 8px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 2px rgba(6, 27, 80, 0.04);
 }
 
-/* 4. Neu-Glass Input Fields */
+/* 7. Input Fields with Spatial Debossed Cavity */
 .neu-glass-input {
-  background: rgba(234, 243, 250, 0.7);
+  background: rgba(234, 243, 250, 0.76);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(203, 213, 225, 0.6);
+  border: 1px solid rgba(203, 213, 225, 0.7);
   box-shadow: 
-    inset 2.5px 2.5px 6px 0 rgba(6, 27, 80, 0.07),
+    inset 2.5px 2.5px 6px 0 rgba(6, 27, 80, 0.08),
     inset -2.5px -2.5px 6px 0 rgba(255, 255, 255, 0.95);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .neu-glass-input:focus {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   border-color: #238BEE;
   box-shadow: 
-    0 0 0 3px rgba(35, 139, 238, 0.2),
+    0 0 0 3.5px rgba(35, 139, 238, 0.22),
+    0 4px 12px rgba(35, 139, 238, 0.12),
     inset 1px 1px 3px 0 rgba(35, 139, 238, 0.1);
   outline: none;
 }
 
-/* 5. Embossed Tactile Neu-Glass Pill & Badges */
-.neu-glass-pill {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 253, 0.75) 100%);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    -4px -4px 12px 0 rgba(255, 255, 255, 0.95),
-    4px 6px 14px -1px rgba(6, 27, 80, 0.08),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
-}
-
-/* 6. Embossed Squircles (Icon bases, step numbers, stats) */
-.neu-glass-icon {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(235, 244, 252, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 
-    -4px -4px 10px 0 rgba(255, 255, 255, 0.95),
-    4px 6px 14px 0 rgba(6, 27, 80, 0.08),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
-  transition: all 0.2s ease;
-}
-
-/* 7. Raised Tactile Buttons */
-.neu-glass-button {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 253, 0.75) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    -4px -4px 12px 0 rgba(255, 255, 255, 0.95),
-    4px 6px 14px 0 rgba(6, 27, 80, 0.09),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
-  transition: all 0.2s ease;
-}
-.neu-glass-button:hover {
-  box-shadow: 
-    -6px -6px 16px 0 rgba(255, 255, 255, 1),
-    6px 8px 18px 0 rgba(35, 139, 238, 0.15);
-  transform: translateY(-1px);
-}
-.neu-glass-button:active {
-  box-shadow: 
-    inset 2px 2px 5px 0 rgba(6, 27, 80, 0.1),
-    inset -2px -2px 5px 0 rgba(255, 255, 255, 0.9);
-  transform: translateY(1px);
-}
-
-/* 8. Floating Dynamic Island / Capsule Navbar */
+/* 8. VisionOS Spatial Floating Nav Dynamic Island */
+.spatial-nav,
+.clay-nav,
 .neu-glass-nav {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(240, 247, 253, 0.72) 100%);
-  backdrop-filter: blur(28px) saturate(210%);
-  -webkit-backdrop-filter: blur(28px) saturate(210%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    -6px -6px 20px 0 rgba(255, 255, 255, 0.9),
-    8px 12px 30px -4px rgba(6, 27, 80, 0.1),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 248, 255, 0.82) 100%);
+  backdrop-filter: blur(32px) saturate(220%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%);
+  border: 1.5px solid rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 3px 0px rgba(6, 27, 80, 0.04),
+    0 8px 24px -4px rgba(6, 27, 80, 0.12),
+    -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+  transform: translateZ(20px);
 }
 
-/* 9. VisionOS Midnight Dark Neumorphic Glass */
-.neu-glass-dark {
-  background: linear-gradient(155deg, rgba(6, 27, 80, 0.92) 0%, rgba(3, 15, 48, 0.95) 100%);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 
-    -8px -8px 24px 0 rgba(35, 139, 238, 0.12),
-    12px 18px 40px -4px rgba(0, 0, 0, 0.45),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.28),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+/* 9. Spatial Floating Pill & Badges */
+.spatial-pill,
+.clay-pill,
+.neu-glass-pill {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 248, 255, 0.86) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 2px 0px rgba(6, 27, 80, 0.03),
+    0 4px 10px -1px rgba(6, 27, 80, 0.08),
+    -3px -3px 10px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 10. Neumorphic Dual Slider with Recessed Track and Embossed Thumb */
+.spatial-pill:hover,
+.clay-pill:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 3px 0px rgba(6, 27, 80, 0.04),
+    0 6px 14px -1px rgba(35, 139, 238, 0.14),
+    -4px -4px 12px 0 rgba(255, 255, 255, 1),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+}
+
+/* 10. Spatial 3D Volumetric Squircles (Icon Bases, Step Tokens) */
+.spatial-icon,
+.clay-icon,
+.neu-glass-icon {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(234, 244, 253, 0.85) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 2px 0px rgba(6, 27, 80, 0.04),
+    0 4px 8px 0 rgba(6, 27, 80, 0.08),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 3px 0 rgba(6, 27, 80, 0.05);
+  transition: all 0.22s ease;
+}
+
+/* 11. Spatial Tactile Clay Buttons */
+.spatial-button,
+.clay-button,
+.neu-glass-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.85) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 3px 0px rgba(6, 27, 80, 0.05),
+    0 6px 14px -2px rgba(6, 27, 80, 0.10),
+    -4px -4px 12px 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-button:hover,
+.clay-button:hover,
+.neu-glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 0px rgba(6, 27, 80, 0.06),
+    0 10px 22px -3px rgba(35, 139, 238, 0.18),
+    -5px -5px 16px 0 rgba(255, 255, 255, 1),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+}
+
+.spatial-button:active,
+.clay-button:active,
+.neu-glass-button:active {
+  transform: translateY(1.5px);
+  box-shadow:
+    inset 2.5px 2.5px 6px 0 rgba(6, 27, 80, 0.12),
+    inset -2.5px -2.5px 6px 0 rgba(255, 255, 255, 0.92);
+}
+
+/* 12. VisionOS Midnight Dark Spatial Neumorphic Glass */
+.neu-glass-dark,
+.spatial-dark {
+  background: linear-gradient(155deg, rgba(6, 27, 80, 0.94) 0%, rgba(3, 15, 48, 0.97) 100%);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow:
+    0 4px 0px rgba(0, 0, 0, 0.2),
+    0 14px 34px -4px rgba(0, 0, 0, 0.50),
+    -6px -6px 20px 0 rgba(35, 139, 238, 0.14),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* 13. Spatial Range Slider with Recessed Track & Volumetric Thumb */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background: rgba(220, 234, 246, 0.8);
+  background: rgba(220, 234, 246, 0.85);
   height: 8px;
   border-radius: 9999px;
   outline: none;
   box-shadow: 
-    inset 2px 2px 4px 0 rgba(6, 27, 80, 0.1),
-    inset -2px -2px 4px 0 rgba(255, 255, 255, 0.95);
+    inset 2px 2px 5px 0 rgba(6, 27, 80, 0.12),
+    inset -2px -2px 5px 0 rgba(255, 255, 255, 0.95);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -185,11 +314,13 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #2ea0ff, #1d77d1);
+  background: linear-gradient(145deg, #32a5ff, #1a74d2);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   box-shadow: 
-    -3px -3px 8px 0 rgba(255, 255, 255, 0.8),
-    3px 5px 12px 0 rgba(35, 139, 238, 0.45),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.8);
+    0 2px 0px rgba(6, 27, 80, 0.1),
+    0 4px 10px 0 rgba(35, 139, 238, 0.45),
+    -2px -2px 6px 0 rgba(255, 255, 255, 0.85),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition: transform 0.15s ease;
 }
@@ -200,31 +331,54 @@ input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(0.95);
 }
 
-/* Ambient Levitating Animations */
-@keyframes neuFloatGentle {
+/* 14. Spatial Ambient Levitating Physics */
+@keyframes spatialFloatGentle {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateZ(0);
   }
   50% {
-    transform: translateY(-7px);
+    transform: translateY(-8px) translateZ(14px);
   }
 }
 
-@keyframes neuFloatReverse {
+@keyframes spatialFloatRev {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateZ(0);
   }
   50% {
-    transform: translateY(7px);
+    transform: translateY(8px) translateZ(10px);
   }
 }
 
-.animate-neu-float {
-  animation: neuFloatGentle 6s ease-in-out infinite;
+@keyframes spatialPulseLight {
+  0%, 100% {
+    box-shadow:
+      0 3px 0px rgba(35, 139, 238, 0.06),
+      0 12px 28px -4px rgba(35, 139, 238, 0.18),
+      -6px -6px 18px 0 rgba(255, 255, 255, 0.95),
+      inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+  }
+  50% {
+    box-shadow:
+      0 3px 0px rgba(35, 139, 238, 0.10),
+      0 18px 36px -4px rgba(35, 139, 238, 0.28),
+      -8px -8px 22px 0 rgba(255, 255, 255, 1),
+      inset 0 2px 3px 0 rgba(255, 255, 255, 1);
+  }
 }
 
-.animate-neu-float-rev {
-  animation: neuFloatReverse 7s ease-in-out infinite;
+.animate-neu-float,
+.animate-spatial-float {
+  animation: spatialFloatGentle 6s ease-in-out infinite;
+}
+
+.animate-neu-float-rev,
+.animate-spatial-float-rev {
+  animation: spatialFloatRev 7s ease-in-out infinite;
+}
+
+.animate-spatial-pulse {
+  animation: spatialPulseLight 4s ease-in-out infinite;
 }
 
 /* Custom Refined Scrollbar */
@@ -235,10 +389,10 @@ input[type="range"]::-webkit-slider-thumb:active {
   background: rgba(238, 245, 251, 0.7);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(35, 139, 238, 0.35);
+  background: rgba(35, 139, 238, 0.38);
   border-radius: 9999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(35, 139, 238, 0.6);
+  background: rgba(35, 139, 238, 0.65);
 }

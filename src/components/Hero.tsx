@@ -19,9 +19,9 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
   return (
     <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
-      {/* Background Ambient Neu-Aurora Glows */}
-      <div className="absolute top-10 left-1/4 w-[650px] h-[450px] bg-gradient-to-tr from-azure-400/20 via-sky-300/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-neu-float" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-gradient-to-bl from-cyan-400/20 via-mint/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-neu-float-rev" />
+      {/* Background Ambient Neu-Aurora Glows with Spatial Depth */}
+      <div className="absolute top-10 left-1/4 w-[650px] h-[450px] bg-gradient-to-tr from-azure-400/20 via-sky-300/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-spatial-float" />
+      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-gradient-to-bl from-cyan-400/20 via-mint/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-spatial-float-rev" />
       <div className="absolute -bottom-10 left-10 w-[500px] h-[400px] bg-gradient-to-tr from-azure-600/15 via-navy/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,8 +29,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
           
           {/* Left Column: Headline & Neu-Glass CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Pill Badge with Soft Extrusion */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-glass-pill mb-5">
+            {/* Pill Badge with Soft Spatial Clay Extrusion */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full spatial-pill mb-5">
               <Sparkles className="w-3.5 h-3.5 text-azure-600" />
               <span className="text-azure-700 font-bold text-xs tracking-wide">
                 24/7 Helping Hands for Your Medical Billing &amp; Practice Needs
@@ -62,7 +62,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
 
               <a
                 href="#specialties"
-                className="px-6 py-3.5 rounded-2xl neu-glass-button text-navy hover:text-azure-600 font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
+                className="px-6 py-3.5 rounded-2xl spatial-button text-navy hover:text-azure-600 font-bold text-sm flex items-center justify-center gap-1.5 transition-all"
               >
                 <span>Explore 22 Specialties</span>
                 <ChevronRight className="w-4 h-4 text-azure-600" />
@@ -70,32 +70,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
             </div>
 
             {/* Tactile Proof Trust Indicators (Recessed Tray with Raised Counter Pills) */}
-            <div className="p-3.5 rounded-2xl neu-glass-inset w-full sm:max-w-xl grid grid-cols-3 gap-3">
-              <div className="p-2.5 rounded-xl neu-glass-pill text-center">
+            <div className="p-3.5 rounded-2xl spatial-inset w-full sm:max-w-xl grid grid-cols-3 gap-3">
+              <div className="p-2.5 rounded-xl spatial-pill text-center">
                 <span className="text-lg sm:text-xl font-black text-navy block leading-none mb-1">{COMPANY_INFO.stats.providers}</span>
                 <span className="text-[10px] text-slate-500 font-semibold block leading-tight">Physicians</span>
               </div>
-              <div className="p-2.5 rounded-xl neu-glass-pill text-center">
+              <div className="p-2.5 rounded-xl spatial-pill clay-mint text-center">
                 <span className="text-lg sm:text-xl font-black text-mint-500 block leading-none mb-1">{COMPANY_INFO.stats.cleanClaims}</span>
                 <span className="text-[10px] text-slate-500 font-semibold block leading-tight">Clean Rate</span>
               </div>
-              <div className="p-2.5 rounded-xl neu-glass-pill text-center">
+              <div className="p-2.5 rounded-xl spatial-pill clay-azure text-center">
                 <span className="text-lg sm:text-xl font-black text-azure-600 block leading-none mb-1">{COMPANY_INFO.stats.dar}</span>
                 <span className="text-[10px] text-slate-500 font-semibold block leading-tight">Avg. DAR</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Tactile Neu-Glass Floating Stage */}
+          {/* Right Column: Tactile Neu-Glass Floating Stage with Spatial Depth */}
           <div className="lg:col-span-5 relative">
             
-            {/* Raised Neu-Glass Stage Card */}
-            <div className="relative p-6 sm:p-7 rounded-3xl neu-glass-card-static">
+            {/* Raised Spatial Stage Card */}
+            <div className="relative p-6 sm:p-7 rounded-3xl spatial-stage">
               
               {/* Card Header */}
               <div className="flex items-center justify-between pb-4 border-b border-slate-200/50">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl neu-glass-icon flex items-center justify-center text-azure-600">
+                  <div className="w-9 h-9 rounded-xl spatial-icon flex items-center justify-center text-azure-600">
                     <Activity className="w-5 h-5 text-azure-600" />
                   </div>
                   <div>
@@ -110,13 +110,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
 
               {/* Sparkline Recessed Cavity */}
-              <div className="my-4 p-4 rounded-2xl neu-glass-inset">
+              <div className="my-4 p-4 rounded-2xl spatial-inset">
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-1.5">
                     <FileCheck2 className="w-4 h-4 text-azure-600" />
                     <span className="text-xs font-bold text-slate-700">98.7% Clean Claims Rate</span>
                   </div>
-                  <span className="text-[10px] font-black text-mint-500 neu-glass-pill px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-black text-mint-500 spatial-pill px-2 py-0.5 rounded">
                     +14.2% vs Nat'l Avg
                   </span>
                 </div>
@@ -152,7 +152,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
 
               {/* 2-Column Raised Metric Pills */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3.5 rounded-2xl neu-glass-pill">
+                <div className="p-3.5 rounded-2xl spatial-pill clay-azure">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-semibold text-slate-500">Days in A/R</span>
                     <Clock className="w-3.5 h-3.5 text-azure-600" />
@@ -164,7 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                   <span className="text-[10px] text-slate-400 mt-1 block">Industry Avg: 48 Days</span>
                 </div>
 
-                <div className="p-3.5 rounded-2xl neu-glass-pill">
+                <div className="p-3.5 rounded-2xl spatial-pill clay-mint">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-semibold text-slate-500">Net Collections</span>
                     <DollarSign className="w-3.5 h-3.5 text-mint-500" />
@@ -177,8 +177,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                 </div>
               </div>
 
-              {/* Security Seal in Dark Neumorphic Glass */}
-              <div className="p-3.5 rounded-2xl neu-glass-dark text-white flex items-center justify-between">
+              {/* Security Seal in Dark Spatial Glass */}
+              <div className="p-3.5 rounded-2xl spatial-dark text-white flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-azure-300 shadow-xs">
                     <Lock className="w-3.5 h-3.5" />
@@ -197,9 +197,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
             </div>
 
-            {/* Kinetic Floating Neumorphic Glass Capsules */}
-            <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl neu-glass-pill hidden sm:flex items-center gap-2.5 animate-neu-float">
-              <div className="w-8 h-8 rounded-xl bg-mint-50 neu-glass-icon flex items-center justify-center text-mint-500 font-black text-xs">
+            {/* Kinetic Floating Spatial Clay Capsules */}
+            <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl spatial-pill clay-azure hidden sm:flex items-center gap-2.5 animate-spatial-float">
+              <div className="w-8 h-8 rounded-xl bg-mint-50 spatial-icon flex items-center justify-center text-mint-500 font-black text-xs">
                 $
               </div>
               <div>
@@ -208,8 +208,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
             </div>
 
-            <div className="absolute -top-4 -right-2 p-2.5 rounded-2xl neu-glass-pill hidden sm:flex items-center gap-2 animate-neu-float-rev">
-              <div className="w-7 h-7 rounded-lg neu-glass-icon flex items-center justify-center text-azure-600 font-bold text-xs">
+            <div className="absolute -top-4 -right-2 p-2.5 rounded-2xl spatial-pill clay-azure hidden sm:flex items-center gap-2 animate-spatial-float-rev">
+              <div className="w-7 h-7 rounded-lg spatial-icon flex items-center justify-center text-azure-600 font-bold text-xs">
                 15+
               </div>
               <div>

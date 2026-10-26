@@ -31,7 +31,7 @@ export const FaqSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordion List with Raised Neu-Glass Modules */}
+        {/* Accordion List with Raised Spatial Clay Modules */}
         <div className="space-y-3.5">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
@@ -39,7 +39,7 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="rounded-3xl neu-glass-card-static overflow-hidden transition-all duration-200"
+                className="rounded-3xl spatial-card overflow-hidden transition-all duration-200"
               >
                 <button
                   type="button"
@@ -50,14 +50,14 @@ export const FaqSection: React.FC = () => {
                   <span className="text-sm sm:text-base font-bold text-navy leading-snug">
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'bg-azure-600 text-white rotate-180 shadow-xs' : 'neu-glass-button text-azure-600'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'bg-azure-600 text-white rotate-180 shadow-xs' : 'spatial-button text-azure-600'}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
                   <div className="p-4 sm:p-5 pt-0">
-                    <div className="p-4 rounded-2xl neu-glass-inset text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    <div className="p-4 rounded-2xl spatial-inset text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {faq.answer}
                     </div>
                   </div>
@@ -68,7 +68,7 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Bottom Support Callout */}
-        <div className="mt-8 text-center p-4 rounded-3xl neu-glass-card-static">
+        <div className="mt-8 text-center p-4 rounded-3xl spatial-stage clay-azure">
           <p className="text-xs font-semibold text-slate-700">
             Have a specialized question regarding payer contracts or ASC carve-outs?
           </p>

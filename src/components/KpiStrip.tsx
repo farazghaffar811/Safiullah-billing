@@ -52,21 +52,26 @@ export const KpiStrip: React.FC = () => {
           </h2>
         </div>
 
-        {/* 4 Raised Neu-Glass KPI Cards */}
+        {/* 4 Raised Spatial Clay KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {kpis.map((kpi, idx) => {
             const IconComponent = kpi.icon;
+            const clayTintClass = 
+              idx === 0 ? 'clay-azure' :
+              idx === 1 ? 'clay-navy' :
+              idx === 2 ? 'clay-mint' : 'clay-azure';
+
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-3xl neu-glass-card flex flex-col justify-between group"
+                className={`p-5 sm:p-6 rounded-3xl spatial-card ${clayTintClass} flex flex-col justify-between group`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-11 h-11 rounded-2xl neu-glass-icon flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-11 h-11 rounded-2xl spatial-icon flex items-center justify-center group-hover:scale-110 transition-transform">
                       <IconComponent className={`w-5 h-5 ${kpi.accent}`} />
                     </div>
-                    <span className="text-[11px] font-bold text-slate-400 font-mono neu-glass-pill px-2 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold text-slate-400 font-mono spatial-pill px-2 py-0.5 rounded-full">
                       0{idx + 1}
                     </span>
                   </div>
@@ -86,11 +91,11 @@ export const KpiStrip: React.FC = () => {
           })}
         </div>
 
-        {/* EHR Platform Strip with Recessed Neu-Glass Tray */}
-        <div className="p-4 sm:p-5 rounded-3xl neu-glass-inset">
+        {/* EHR Platform Strip with Recessed Spatial Inset Tray */}
+        <div className="p-4 sm:p-5 rounded-3xl spatial-inset">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5 shrink-0 text-center md:text-left">
-              <div className="w-8 h-8 rounded-xl neu-glass-icon flex items-center justify-center text-azure-600">
+              <div className="w-8 h-8 rounded-xl spatial-icon flex items-center justify-center text-azure-600">
                 <Layers className="w-4 h-4" />
               </div>
               <div>
@@ -103,7 +108,7 @@ export const KpiStrip: React.FC = () => {
               {EHR_PLATFORMS.map((platform, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-700 neu-glass-pill hover:text-azure-600 transition-colors"
+                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-700 spatial-pill hover:text-azure-600 transition-colors"
                 >
                   {platform}
                 </span>

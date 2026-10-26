@@ -52,11 +52,11 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Carousel Container */}
         <div className="max-w-3xl mx-auto">
-          <div className="p-6 sm:p-9 rounded-3xl neu-glass-card-static">
+          <div className="p-6 sm:p-9 rounded-3xl spatial-stage clay-azure">
             {/* Header Quote & Badge */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-11 h-11 rounded-2xl neu-glass-icon flex items-center justify-center text-azure-600">
+                <div className="w-11 h-11 rounded-2xl spatial-icon flex items-center justify-center text-azure-600">
                   <Quote className="w-5 h-5" />
                 </div>
                 <div className="flex items-center gap-0.5 ml-1">
@@ -66,7 +66,7 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 neu-glass-pill px-3 py-1 rounded-full">
+              <div className="flex items-center gap-1.5 spatial-pill clay-mint px-3 py-1 rounded-full">
                 <TrendingUp className="w-3.5 h-3.5 text-mint-500" />
                 <span className="text-xs font-black text-navy">{current.metric}</span>
                 <span className="text-[10px] text-slate-500 font-semibold">{current.metricLabel}</span>
@@ -81,7 +81,7 @@ export const TestimonialsSection: React.FC = () => {
             {/* Author */}
             <div className="pt-4 border-t border-slate-200/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl neu-glass-icon bg-navy text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-2xl spatial-icon bg-navy text-white font-bold text-xs flex items-center justify-center shadow-xs">
                   {current.avatarText}
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export const TestimonialsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full neu-glass-button text-navy flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-full spatial-button text-navy flex items-center justify-center transition-all"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -130,7 +130,7 @@ export const TestimonialsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full neu-glass-button text-navy flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-full spatial-button text-navy flex items-center justify-center transition-all"
                 aria-label="Next"
               >
                 <ChevronRight className="w-4 h-4" />
