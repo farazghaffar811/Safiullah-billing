@@ -3,7 +3,8 @@ import {
   Sparkles, 
   CheckCircle2, 
   FileCheck2, 
-  Phone
+  Phone,
+  ShieldCheck
 } from 'lucide-react';
 import { AuditForm } from './AuditForm';
 import { COMPANY_INFO } from '../data/billingData';
@@ -20,7 +21,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({
   initialDenialRate
 }) => {
   return (
-    <section id="audit" className="py-16 sm:py-24 relative">
+    <section id="audit" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -47,12 +48,31 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({
         {/* 2-Column Spatial Clay Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start max-w-5xl mx-auto">
           
-          {/* Left Column: Scope Card */}
+          {/* Left Column: Scope Card with Senior Auditor Visual */}
           <div className="lg:col-span-5 p-6 rounded-3xl spatial-stage clay-azure flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-200/50">
-                <div className="w-10 h-10 rounded-2xl spatial-icon flex items-center justify-center text-azure-600">
-                  <FileCheck2 className="w-5 h-5" />
+              {/* Doctor Consultant Visual Banner */}
+              <div className="relative rounded-2xl overflow-hidden mb-5 spatial-inset border border-white/80 group">
+                <img 
+                  src="/images/doctor-audit-consult.png" 
+                  alt="Senior Medical Billing Auditor Reviewing Practice Data" 
+                  className="w-full h-44 object-cover object-top filter brightness-[0.98] group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/30 to-transparent flex flex-col justify-end p-3.5">
+                  <div className="flex items-center gap-1.5 spatial-pill px-2.5 py-0.5 rounded-full bg-white/90 text-navy w-fit mb-1 shadow-sm">
+                    <ShieldCheck className="w-3.5 h-3.5 text-azure-600" />
+                    <span className="text-[10px] font-bold">AAPC Senior Auditor Review</span>
+                  </div>
+                  <p className="text-white text-xs font-semibold drop-shadow-sm">
+                    Comprehensive 48-Hour Chart &amp; Claim Analysis
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-slate-200/50">
+                <div className="w-9 h-9 rounded-2xl spatial-icon flex items-center justify-center text-azure-600">
+                  <FileCheck2 className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-navy">Audit Scope</h3>
@@ -60,7 +80,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6">
+              <div className="space-y-2.5 mb-6">
                 <div className="flex items-start gap-2.5 p-2.5 rounded-2xl spatial-pill">
                   <CheckCircle2 className="w-4 h-4 text-mint-500 shrink-0 mt-0.5" />
                   <div>

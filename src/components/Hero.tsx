@@ -5,7 +5,6 @@ import {
   Clock, 
   CheckCircle2, 
   Activity, 
-  FileCheck2, 
   DollarSign, 
   Lock, 
   ChevronRight
@@ -19,6 +18,12 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
   return (
     <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+      {/* Background Medical UHD Atmosphere */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-[0.06] pointer-events-none -z-20 mix-blend-multiply"
+        style={{ backgroundImage: `url('/images/doctor-team-banner.jpg')` }}
+      />
+
       {/* Background Ambient Neu-Aurora Glows with Spatial Depth */}
       <div className="absolute top-10 left-1/4 w-[650px] h-[450px] bg-gradient-to-tr from-azure-400/20 via-sky-300/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-spatial-float" />
       <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-gradient-to-bl from-cyan-400/20 via-mint/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-spatial-float-rev" />
@@ -49,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-9">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-6">
               <button
                 type="button"
                 onClick={onOpenAuditModal}
@@ -69,6 +74,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </a>
             </div>
 
+            {/* Doctor Face Stack & Verified Trust Proof */}
+            <div className="flex items-center gap-3 mb-7 p-2 rounded-2xl spatial-inset w-full sm:max-w-xl">
+              <div className="flex -space-x-2.5 overflow-hidden pl-1">
+                <img 
+                  src="/images/doctor-michael-vance.jpg" 
+                  alt="Dr. Michael Vance, MD" 
+                  className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-sm"
+                />
+                <img 
+                  src="/images/doctor-sarah-jenkins.jpg" 
+                  alt="Dr. Sarah Jenkins, DO" 
+                  className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-sm"
+                />
+                <img 
+                  src="/images/doctor-robert-sterling.jpg" 
+                  alt="Dr. Robert Sterling, MD" 
+                  className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-sm"
+                />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-amber-400 text-xs leading-none">★</span>
+                  ))}
+                  <span className="text-xs font-bold text-navy ml-1">4.9 / 5.0</span>
+                </div>
+                <p className="text-[11px] text-slate-500 font-medium">Trusted by 1,200+ Healthcare Providers Nationwide</p>
+              </div>
+            </div>
+
             {/* Tactile Proof Trust Indicators (Recessed Tray with Raised Counter Pills) */}
             <div className="p-3.5 rounded-2xl spatial-inset w-full sm:max-w-xl grid grid-cols-3 gap-3">
               <div className="p-2.5 rounded-xl spatial-pill text-center">
@@ -86,47 +121,45 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
             </div>
           </div>
 
-          {/* Right Column: Tactile Neu-Glass Floating Stage with Spatial Depth */}
-          <div className="lg:col-span-5 relative">
-            
-            {/* Raised Spatial Stage Card */}
-            <div className="relative p-6 sm:p-7 rounded-3xl spatial-stage">
-              
-              {/* Card Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200/50">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl spatial-icon flex items-center justify-center text-azure-600">
-                    <Activity className="w-5 h-5 text-azure-600" />
+          {/* Right Column: UHD Doctor Showcase & Spatial Floating Console */}
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[500px]">
+            {/* Ambient Volumetric Backdrop Light */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-azure-400/20 via-sky-200/30 to-mint/20 rounded-full blur-3xl transform scale-95 -z-10" />
+
+            {/* UHD Cutout Doctor Image from MedAlign */}
+            <div className="relative z-10 flex justify-center items-end pt-4">
+              <img
+                src="/images/doctor-female-hero.png"
+                alt="Elite Medical Billing Chief Physician"
+                className="h-[430px] sm:h-[490px] w-auto object-contain drop-shadow-[0_20px_35px_rgba(6,27,80,0.22)] select-none pointer-events-none"
+              />
+            </div>
+
+            {/* Top-Right Floating Card: Practice Cash Velocity & Sparkline */}
+            <div className="absolute top-2 -right-2 sm:-right-4 p-3.5 rounded-2xl spatial-stage w-56 sm:w-60 z-20 shadow-xl animate-spatial-float">
+              <div className="flex items-center justify-between pb-1.5 border-b border-slate-200/50">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-6 h-6 rounded-lg spatial-icon flex items-center justify-center text-azure-600">
+                    <Activity className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-navy">Practice Cash Velocity</h3>
-                    <p className="text-[10px] text-slate-500 font-medium">Real-Time Performance Feed</p>
+                    <h3 className="text-[10px] font-bold text-navy leading-none">Cash Velocity</h3>
+                    <p className="text-[8px] text-slate-400">Live EHR Feed</p>
                   </div>
                 </div>
-                <span className="flex items-center gap-1.5 bg-mint-50 text-mint-500 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-mint-200/60 shadow-xs">
+                <span className="flex items-center gap-1 bg-mint-50 text-mint-500 text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-mint-200/60 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-mint" />
-                  <span>Optimal Flow</span>
+                  <span>98.7%</span>
                 </span>
               </div>
 
-              {/* Sparkline Recessed Cavity */}
-              <div className="my-4 p-4 rounded-2xl spatial-inset">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-1.5">
-                    <FileCheck2 className="w-4 h-4 text-azure-600" />
-                    <span className="text-xs font-bold text-slate-700">98.7% Clean Claims Rate</span>
-                  </div>
-                  <span className="text-[10px] font-black text-mint-500 spatial-pill px-2 py-0.5 rounded">
-                    +14.2% vs Nat'l Avg
-                  </span>
+              {/* Sparkline */}
+              <div className="mt-2">
+                <div className="flex justify-between items-baseline mb-0.5">
+                  <span className="text-lg font-black text-navy leading-none">98.7% Clean</span>
+                  <span className="text-[9px] font-bold text-mint-500">+14.2% vs Avg</span>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-3xl font-extrabold text-navy tracking-tight">98.7%</span>
-                  <span className="text-xs text-slate-400">First-Pass Acceptance</span>
-                </div>
-
-                {/* Clean SVG Sparkline */}
-                <div className="h-9 w-full relative">
+                <div className="h-6 w-full">
                   <svg className="w-full h-full" viewBox="0 0 200 36">
                     <defs>
                       <linearGradient id="azureGlowNeu" x1="0" y1="0" x2="0" y2="1">
@@ -149,75 +182,52 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                   </svg>
                 </div>
               </div>
+            </div>
 
-              {/* 2-Column Raised Metric Pills */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3.5 rounded-2xl spatial-pill clay-azure">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-semibold text-slate-500">Days in A/R</span>
-                    <Clock className="w-3.5 h-3.5 text-azure-600" />
-                  </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-black text-navy">&lt; 26</span>
-                    <span className="text-xs font-bold text-slate-500">Days</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Industry Avg: 48 Days</span>
-                </div>
-
-                <div className="p-3.5 rounded-2xl spatial-pill clay-mint">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-semibold text-slate-500">Net Collections</span>
-                    <DollarSign className="w-3.5 h-3.5 text-mint-500" />
-                  </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-black text-mint-500">+35%</span>
-                    <span className="text-xs font-bold text-slate-500">Lift</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Within 90 Days</span>
-                </div>
+            {/* Bottom-Left Floating Card: Days in A/R */}
+            <div className="absolute bottom-14 -left-2 sm:-left-5 p-3 rounded-2xl spatial-pill clay-azure z-20 shadow-xl animate-spatial-float-rev flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl spatial-icon flex items-center justify-center text-azure-600 shrink-0">
+                <Clock className="w-4 h-4 text-azure-600" />
               </div>
-
-              {/* Security Seal in Dark Spatial Glass */}
-              <div className="p-3.5 rounded-2xl spatial-dark text-white flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-azure-300 shadow-xs">
-                    <Lock className="w-3.5 h-3.5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white flex items-center gap-1">
-                      <span>HIPAA &amp; HITECH Compliant</span>
-                      <CheckCircle2 className="w-3 h-3 text-mint" />
-                    </h4>
-                    <p className="text-[10px] text-white/70">256-Bit Bank-Grade EDI Encryption</p>
-                  </div>
+              <div>
+                <span className="text-[9px] font-semibold text-slate-500 block leading-tight">Average DAR</span>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg font-black text-navy leading-none">&lt; 26</span>
+                  <span className="text-[10px] font-bold text-slate-600">Days</span>
                 </div>
-                <span className="text-[10px] font-bold uppercase text-azure-300 bg-azure-900/60 px-2 py-0.5 rounded border border-azure-400/20 shadow-xs">
-                  Certified
-                </span>
+                <span className="text-[8px] text-slate-400">Industry: 48 Days</span>
               </div>
             </div>
 
-            {/* Kinetic Floating Spatial Clay Capsules */}
-            <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl spatial-pill clay-azure hidden sm:flex items-center gap-2.5 animate-spatial-float">
-              <div className="w-8 h-8 rounded-xl bg-mint-50 spatial-icon flex items-center justify-center text-mint-500 font-black text-xs">
+            {/* Bottom-Right Floating Card: Net Collections Lift */}
+            <div className="absolute bottom-2 -right-2 sm:-right-4 p-3 rounded-2xl spatial-pill clay-mint z-20 shadow-xl animate-spatial-float flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl spatial-icon flex items-center justify-center text-mint-500 shrink-0">
+                <DollarSign className="w-4 h-4 text-mint-500" />
+              </div>
+              <div>
+                <span className="text-[9px] font-semibold text-slate-500 block leading-tight">Net Collections</span>
+                <span className="text-lg font-black text-mint-500 leading-none block">+35% Lift</span>
+                <span className="text-[8px] text-slate-400">Within 90 Days</span>
+              </div>
+            </div>
+
+            {/* Top-Left Floating Badge: $250M+ Claims */}
+            <div className="absolute top-10 -left-2 sm:-left-4 p-2.5 rounded-2xl spatial-pill clay-azure z-20 shadow-lg hidden sm:flex items-center gap-2 animate-spatial-float-rev">
+              <div className="w-7 h-7 rounded-lg bg-mint-50 spatial-icon flex items-center justify-center text-mint-500 font-bold text-xs">
                 $
               </div>
               <div>
-                <p className="text-xs font-bold text-navy">$250M+ Claims Processed</p>
-                <p className="text-[10px] text-slate-500">Zero Unresolved Write-Offs</p>
+                <p className="text-[10px] font-bold text-navy leading-tight">$250M+ Claims</p>
+                <p className="text-[8px] text-slate-500">Processed Annually</p>
               </div>
             </div>
 
-            <div className="absolute -top-4 -right-2 p-2.5 rounded-2xl spatial-pill clay-azure hidden sm:flex items-center gap-2 animate-spatial-float-rev">
-              <div className="w-7 h-7 rounded-lg spatial-icon flex items-center justify-center text-azure-600 font-bold text-xs">
-                15+
-              </div>
-              <div>
-                <p className="text-xs font-bold text-navy">15+ Years</p>
-                <p className="text-[10px] text-slate-500">Billing Leadership</p>
-              </div>
+            {/* Bottom Centered HIPAA Compliance Seal */}
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-2xl spatial-dark text-white z-30 shadow-xl flex items-center gap-2 whitespace-nowrap">
+              <Lock className="w-3 h-3 text-mint" />
+              <span className="text-[10px] font-bold">HIPAA &amp; HITECH Compliant</span>
+              <CheckCircle2 className="w-3 h-3 text-mint" />
             </div>
-
           </div>
 
         </div>

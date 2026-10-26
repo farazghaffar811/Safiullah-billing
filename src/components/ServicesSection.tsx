@@ -22,6 +22,19 @@ interface ServicesSectionProps {
   onOpenAuditModal: () => void;
 }
 
+const SERVICE_IMAGES: Record<string, string> = {
+  'medical-billing-coding': '/images/service-billing-coding.png',
+  'rcm': '/images/service-rcm.png',
+  'eligibility-verification': '/images/service-eligibility.png',
+  'credentialing-enrollment': '/images/service-credentialing.png',
+  'denial-management': '/images/service-denial.png',
+  'virtual-assistant': '/images/service-assistant.png',
+  'ar-cleanup': '/images/service-ar.png',
+  'prior-authorization': '/images/service-prior-auth.png',
+  'patient-helpdesk': '/images/doctor-male-hero.png',
+  'digital-solutions': '/images/doctor-workplace.avif',
+};
+
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditModal }) => {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
@@ -78,33 +91,44 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {SERVICES.map((service) => {
             const IconComponent = getServiceIcon(service.iconName);
+            const serviceImg = SERVICE_IMAGES[service.id];
             return (
               <div
                 id={`service-${service.id}`}
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="p-6 rounded-3xl spatial-card flex flex-col justify-between cursor-pointer group"
+                className="p-6 rounded-3xl spatial-card flex flex-col justify-between cursor-pointer group hover:-translate-y-1 transition-all duration-300"
               >
                 <div>
-                  {/* Top Bar with Number & Icon */}
+                  {/* Top Bar with Icon/Image & Number */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-2xl spatial-icon flex items-center justify-center text-azure-600 shadow-xs">
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      {service.badge && (
-                        <span className="text-[10px] font-bold text-azure-700 spatial-pill px-2.5 py-0.5 rounded-full">
-                          {service.badge}
-                        </span>
-                      )}
-                      <span className="text-xs font-bold text-slate-400 font-mono spatial-pill px-2 py-0.5 rounded-full">
-                        {service.number}
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl spatial-icon flex items-center justify-center text-azure-600 shadow-xs relative overflow-hidden bg-white/80 p-1">
+                        {serviceImg ? (
+                          <img 
+                            src={serviceImg} 
+                            alt={service.title} 
+                            className="w-full h-full object-contain filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <IconComponent className="w-5 h-5" />
+                        )}
+                      </div>
+                      <span className="text-xs font-bold text-slate-400 font-mono spatial-pill px-2.5 py-0.5 rounded-full">
+                        #{service.number}
                       </span>
                     </div>
+
+                    {service.badge && (
+                      <span className="text-[10px] font-bold text-azure-700 spatial-pill px-2.5 py-0.5 rounded-full">
+                        {service.badge}
+                      </span>
+                    )}
                   </div>
 
                   {/* Title & Short Description */}
-                  <h3 className="text-base font-bold text-navy tracking-tight mb-1.5">
+                  <h3 className="text-base font-bold text-navy tracking-tight mb-1.5 group-hover:text-azure-600 transition-colors">
                     {service.title}
                   </h3>
 
@@ -161,7 +185,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
           <button
             type="button"
             onClick={onOpenAuditModal}
-            className="px-5 py-2.5 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5 shrink-0 active:scale-95"
+            className="px-5 py-2.5 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5 shrink-0 active:scale-95 cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Request Practice Proposal</span>
@@ -193,25 +217,38 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
               <button
                 type="button"
                 onClick={() => setSelectedService(null)}
-                className="absolute top-5 right-5 p-1.5 rounded-full spatial-button text-slate-400 hover:text-navy transition-colors focus:outline-none"
+                className="absolute top-5 right-5 p-1.5 rounded-full spatial-button text-slate-400 hover:text-navy transition-colors focus:outline-none cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-bold text-azure-600 spatial-pill px-2.5 py-0.5 rounded-full">
-                  Service {selectedService.number} of 10
-                </span>
-                {selectedService.badge && (
-                  <span className="text-[10px] font-semibold text-slate-600 spatial-pill px-2.5 py-0.5 rounded-full">
-                    {selectedService.badge}
-                  </span>
+              {/* Modal Header with Graphic Banner */}
+              <div className="flex items-center gap-4 mb-4 p-3 rounded-2xl spatial-inset bg-gradient-to-r from-azure-50/70 to-white/80">
+                {SERVICE_IMAGES[selectedService.id] && (
+                  <div className="w-16 h-16 rounded-2xl spatial-icon p-2 bg-white/95 shrink-0 flex items-center justify-center shadow-sm">
+                    <img 
+                      src={SERVICE_IMAGES[selectedService.id]} 
+                      alt={selectedService.title} 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 )}
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-bold text-azure-600 spatial-pill px-2.5 py-0.5 rounded-full">
+                      Service {selectedService.number} of 10
+                    </span>
+                    {selectedService.badge && (
+                      <span className="text-[10px] font-semibold text-slate-600 spatial-pill px-2.5 py-0.5 rounded-full">
+                        {selectedService.badge}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-navy tracking-tight">
+                    {selectedService.title}
+                  </h3>
+                </div>
               </div>
-
-              <h3 className="text-xl sm:text-2xl font-extrabold text-navy tracking-tight mb-3">
-                {selectedService.title}
-              </h3>
 
               <div className="p-3.5 rounded-2xl spatial-inset mb-4">
                 <p className="text-xs text-slate-700 leading-relaxed font-normal">
@@ -248,7 +285,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
                 <button
                   type="button"
                   onClick={() => setSelectedService(null)}
-                  className="px-4 py-2 rounded-xl spatial-button text-slate-600 hover:text-navy text-xs font-bold transition-colors"
+                  className="px-4 py-2 rounded-xl spatial-button text-slate-600 hover:text-navy text-xs font-bold transition-colors cursor-pointer"
                 >
                   Close
                 </button>
@@ -258,7 +295,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
                     setSelectedService(null);
                     onOpenAuditModal();
                   }}
-                  className="px-4 py-2 rounded-xl bg-azure-600 hover:bg-azure-500 text-white text-xs font-bold shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-azure-600 hover:bg-azure-500 text-white text-xs font-bold shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Sparkles className="w-3 h-3" />
                   <span>Request Audit for This Service</span>
