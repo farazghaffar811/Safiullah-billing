@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ChevronDown, Activity, Menu, X, Sparkles, ArrowRight } from 'lucide-react';
+import { Phone, ChevronDown, Activity, Menu, X, Sparkles, ArrowRight, ShieldCheck, Stethoscope } from 'lucide-react';
 import { SERVICES, SPECIALTIES, COMPANY_INFO } from '../data/billingData';
 
 interface NavbarProps {
@@ -14,9 +14,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,34 +27,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 flex justify-center">
+      <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 flex justify-center pointer-events-none">
         <nav
-          className={`w-full max-w-7xl transition-all duration-200 rounded-full glass-nav flex items-center justify-between h-14 px-4 sm:px-6 ${
-            isScrolled ? 'shadow-[0_8px_24px_rgba(6,27,80,0.1)] border-white/90 bg-white/80' : 'bg-white/70'
+          className={`pointer-events-auto w-full max-w-7xl transition-all duration-300 rounded-full glass-nav flex items-center justify-between h-14 px-3.5 sm:px-6 ${
+            isScrolled 
+              ? 'shadow-[0_14px_35px_rgba(6,27,80,0.12)] border-white/95 bg-white/85' 
+              : 'shadow-[0_8px_25px_rgba(6,27,80,0.06)] bg-white/75'
           }`}
         >
-          {/* Single-Line Sleek Brand Logo */}
+          {/* Left: Pixel-Perfect Single-Line Brand Emblem */}
           <a
             href="#"
-            className="flex items-center gap-2.5 text-navy hover:text-azure-600 transition-colors shrink-0"
+            className="flex items-center gap-2.5 text-navy hover:text-azure-600 transition-colors shrink-0 group focus:outline-none"
             onClick={closeDropdowns}
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-azure-600 to-cyan-400 p-0.5 shadow-sm flex items-center justify-center">
-              <div className="w-full h-full bg-white/20 rounded-[6px] flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-azure-600 via-azure-500 to-cyan-400 p-0.5 shadow-sm shadow-azure-500/25 group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
+              <div className="w-full h-full bg-white/15 rounded-[10px] flex items-center justify-center text-white">
                 <Activity className="w-4 h-4 text-white" />
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-navy text-base tracking-tight">EHCS</span>
-              <span className="text-slate-300 hidden md:inline font-light">|</span>
-              <span className="text-xs font-semibold text-slate-600 tracking-tight hidden md:inline">
+              <span className="font-extrabold text-navy text-base tracking-tight leading-none">EHCS</span>
+              <span className="text-slate-300 hidden md:inline font-light select-none">|</span>
+              <span className="text-xs font-semibold text-slate-700 tracking-tight hidden md:inline whitespace-nowrap leading-none">
                 Elite Health Care Services
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center space-x-1 text-xs font-semibold text-slate-700">
+          {/* Center: Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 text-xs font-semibold text-slate-700">
             {/* Services Dropdown */}
             <div
               className="relative"
@@ -64,17 +66,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
               <button
                 type="button"
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-colors ${
-                  servicesOpen ? 'text-azure-600 bg-white/80' : 'hover:text-azure-600 hover:bg-white/60'
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-all ${
+                  servicesOpen ? 'text-azure-600 bg-white/80 shadow-xs' : 'hover:text-azure-600 hover:bg-white/50'
                 }`}
               >
                 <span>Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${servicesOpen ? 'rotate-180 text-azure-600' : 'text-slate-400'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180 text-azure-600' : 'text-slate-400'}`} />
               </button>
 
-              {/* Lightweight Services Dropdown Panel */}
+              {/* Frosted Floating Mega Dropdown Sheet */}
               {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 w-[560px] p-3 rounded-2xl glass-nav bg-white/95 border border-white/90 shadow-xl grid grid-cols-2 gap-1 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[580px] p-3 rounded-3xl glass-nav bg-white/95 border border-white/90 shadow-[0_20px_50px_rgba(6,27,80,0.18)] grid grid-cols-2 gap-1.5 z-50">
+                  <div className="col-span-2 flex items-center justify-between px-2 pb-2 mb-1 border-b border-slate-100">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-azure-600">10 Core RCM Solutions</span>
+                    <a
+                      href="#services"
+                      onClick={() => setServicesOpen(false)}
+                      className="text-[11px] font-bold text-azure-600 hover:text-azure-700 flex items-center gap-1"
+                    >
+                      View All Directory <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
                   {SERVICES.map((s) => (
                     <a
                       key={s.id}
@@ -106,39 +118,43 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
               <button
                 type="button"
                 onClick={() => setSpecialtiesOpen(!specialtiesOpen)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors ${
-                  specialtiesOpen ? 'text-azure-600 bg-white/80' : 'hover:text-azure-600 hover:bg-white/60'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all ${
+                  specialtiesOpen ? 'text-azure-600 bg-white/80 shadow-xs' : 'hover:text-azure-600 hover:bg-white/50'
                 }`}
               >
                 <span>Specialties</span>
-                <span className="text-[10px] font-bold text-azure-600 bg-azure-50 px-1.5 py-0.2 rounded-full">
+                <span className="text-[10px] font-bold text-azure-700 bg-azure-100/80 px-1.5 py-0.2 rounded-full">
                   22
                 </span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${specialtiesOpen ? 'rotate-180 text-azure-600' : 'text-slate-400'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${specialtiesOpen ? 'rotate-180 text-azure-600' : 'text-slate-400'}`} />
               </button>
 
-              {/* Lightweight Specialties Dropdown Panel */}
+              {/* Frosted Floating Specialties Dropdown Sheet */}
               {specialtiesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 w-[580px] p-3 rounded-2xl glass-nav bg-white/95 border border-white/90 shadow-xl z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[620px] p-3 rounded-3xl glass-nav bg-white/95 border border-white/90 shadow-[0_20px_50px_rgba(6,27,80,0.18)] z-50">
                   <div className="flex items-center justify-between px-2 pb-2 mb-1 border-b border-slate-100">
-                    <span className="text-[11px] font-bold text-navy">22 Medical Specialties</span>
+                    <div className="flex items-center gap-1.5">
+                      <Stethoscope className="w-3.5 h-3.5 text-azure-600" />
+                      <span className="text-[11px] font-bold text-navy">22 Specialized Medical Billing Disciplines</span>
+                    </div>
                     <a
                       href="#specialties"
                       onClick={() => setSpecialtiesOpen(false)}
-                      className="text-[11px] font-bold text-azure-600 hover:underline"
+                      className="text-[11px] font-bold text-azure-600 hover:underline flex items-center gap-1"
                     >
-                      View All Specialties &rarr;
+                      Filter All &rarr;
                     </a>
                   </div>
-                  <div className="grid grid-cols-3 gap-1 max-h-[300px] overflow-y-auto pr-1">
+                  <div className="grid grid-cols-3 gap-1 max-h-[310px] overflow-y-auto pr-1">
                     {SPECIALTIES.map((spec) => (
                       <a
                         key={spec.id}
                         href="#specialties"
                         onClick={() => setSpecialtiesOpen(false)}
-                        className="p-1.5 rounded-lg hover:bg-azure-50/80 text-[11px] font-medium text-slate-700 hover:text-azure-600 truncate transition-colors"
+                        className="p-1.5 rounded-xl hover:bg-azure-50/80 text-[11px] font-medium text-slate-700 hover:text-azure-600 truncate transition-colors flex items-center gap-1.5"
                       >
-                        {spec.name}
+                        <span className="w-1 h-1 rounded-full bg-azure-400 shrink-0" />
+                        <span className="truncate">{spec.name}</span>
                       </a>
                     ))}
                   </div>
@@ -146,31 +162,38 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
               )}
             </div>
 
-            <a href="#why-ehcs" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/60 transition-colors">
+            <a href="#why-ehcs" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/50 transition-colors">
               Why EHCS
             </a>
 
-            <a href="#roi-calculator" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/60 transition-colors flex items-center gap-1.5">
+            <a href="#roi-calculator" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/50 transition-colors flex items-center gap-1.5">
               <span>ROI Calculator</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-mint"></span>
+              </span>
             </a>
 
-            <a href="#workflow" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/60 transition-colors">
+            <a href="#workflow" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/50 transition-colors">
               Workflow
             </a>
 
-            <a href="#faqs" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/60 transition-colors">
+            <a href="#faqs" className="px-3 py-1.5 rounded-full hover:text-azure-600 hover:bg-white/50 transition-colors">
               FAQs
             </a>
           </div>
 
-          {/* Quick Actions (Direct Phone & Compact CTA) */}
+          {/* Right: Hotline Pill & Specular Glass CTA */}
           <div className="flex items-center gap-2">
             <a
               href={`tel:${COMPANY_INFO.phone.replace(/[^0-9+]/g, '')}`}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy hover:text-azure-600 bg-white/60 hover:bg-white border border-white/70 transition-colors"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-navy hover:text-azure-600 glass-pill transition-all"
+              title="24/7 Dedicated Revenue Helpline"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-mint"></span>
+              </span>
               <Phone className="w-3 h-3 text-azure-600" />
               <span>{COMPANY_INFO.phoneDisplay}</span>
             </a>
@@ -178,18 +201,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
             <button
               type="button"
               onClick={onOpenAuditModal}
-              className="px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-azure-600 to-azure-500 hover:from-azure-500 hover:to-azure-600 shadow-sm shadow-azure-500/30 transition-all flex items-center gap-1.5 active:scale-95"
+              className="px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-azure-600 via-azure-500 to-azure-600 hover:from-azure-500 hover:to-azure-600 shadow-md shadow-azure-500/25 transition-all flex items-center gap-1.5 active:scale-95"
             >
               <Sparkles className="w-3 h-3 text-white" />
               <span>Free Audit</span>
             </button>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile Menu Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 rounded-lg text-slate-700 hover:text-navy hover:bg-white/70 focus:outline-none"
-              aria-label="Toggle Menu"
+              className="lg:hidden p-1.5 rounded-xl glass-pill text-slate-700 hover:text-navy focus:outline-none"
+              aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -197,10 +220,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
         </nav>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Glass Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-4 top-20 z-50 lg:hidden p-5 rounded-2xl glass-card-dark text-white shadow-2xl border border-white/20">
-          <div className="flex flex-col space-y-2.5 text-sm font-semibold">
+        <div className="fixed inset-x-4 top-20 z-50 lg:hidden p-5 rounded-3xl glass-card-dark text-white shadow-2xl border border-white/20 max-h-[85vh] overflow-y-auto">
+          <div className="flex flex-col space-y-3 text-sm font-semibold">
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <span className="text-xs uppercase font-bold text-azure-300">Navigation</span>
+              <span className="text-xs text-white/60">Elite RCM Intelligence</span>
+            </div>
+
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
@@ -240,6 +268,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
               6-Step Workflow
             </a>
             <a
+              href="#testimonials"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 hover:text-azure-300 transition-colors"
+            >
+              Doctor Testimonials
+            </a>
+            <a
               href="#faqs"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1.5 hover:text-azure-300 transition-colors"
@@ -250,9 +285,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
             <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
               <a
                 href={`tel:${COMPANY_INFO.phone.replace(/[^0-9+]/g, '')}`}
-                className="py-2.5 text-center text-xs font-bold text-white bg-white/10 rounded-xl"
+                className="py-2.5 text-center text-xs font-bold text-white bg-white/10 rounded-2xl flex items-center justify-center gap-2"
               >
-                Call: {COMPANY_INFO.phoneDisplay}
+                <Phone className="w-3.5 h-3.5 text-azure-400" />
+                <span>Call 24/7: {COMPANY_INFO.phoneDisplay}</span>
               </a>
               <button
                 type="button"
@@ -260,7 +296,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuditModal }) => {
                   setMobileMenuOpen(false);
                   onOpenAuditModal();
                 }}
-                className="w-full py-2.5 bg-azure-600 text-white rounded-xl text-xs font-bold shadow-md shadow-azure-600/30 flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 bg-gradient-to-r from-azure-600 to-azure-500 text-white rounded-2xl text-xs font-bold shadow-md shadow-azure-600/30 flex items-center justify-center gap-1.5"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Schedule Free Practice Audit</span>

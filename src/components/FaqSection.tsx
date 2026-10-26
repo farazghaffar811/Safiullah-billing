@@ -31,7 +31,7 @@ export const FaqSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordion List */}
+        {/* Accordion List with Frosted Glass Cards */}
         <div className="space-y-3">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
@@ -39,7 +39,7 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="rounded-2xl glass-card-static overflow-hidden transition-all duration-150"
+                className="rounded-3xl glass-card-static overflow-hidden transition-all duration-200 border-white/85"
               >
                 <button
                   type="button"
@@ -50,13 +50,13 @@ export const FaqSection: React.FC = () => {
                   <span className="text-sm sm:text-base font-bold text-navy leading-snug">
                     {faq.question}
                   </span>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-150 ${isOpen ? 'bg-azure-600 text-white rotate-180' : 'bg-azure-50 text-azure-600'}`}>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'bg-azure-600 text-white rotate-180' : 'glass-pill text-azure-600'}`}>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="p-4 sm:p-5 pt-0 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <div className="p-4 sm:p-5 pt-0 border-t border-slate-100/80 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {faq.answer}
                   </div>
                 )}
@@ -66,7 +66,7 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Bottom Support Callout */}
-        <div className="mt-8 text-center p-4 rounded-2xl glass-card-static">
+        <div className="mt-8 text-center p-4 rounded-3xl glass-card-static border-white/85">
           <p className="text-xs font-semibold text-slate-700">
             Have a specialized question regarding payer contracts or ASC carve-outs?
           </p>

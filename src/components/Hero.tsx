@@ -5,10 +5,12 @@ import {
   Clock, 
   CheckCircle2, 
   Activity, 
-  FileCheck2,
-  DollarSign,
-  Lock,
-  ChevronRight
+  FileCheck2, 
+  DollarSign, 
+  Lock, 
+  ChevronRight,
+  TrendingUp,
+  ShieldCheck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/billingData';
 
@@ -19,18 +21,18 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
   return (
     <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
-      {/* Background Liquid Glass Aurora Blobs */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-azure-400/20 via-sky-300/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-cyan-400/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-[450px] h-[350px] bg-gradient-to-tr from-azure-600/15 via-mint/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* VisionOS Specular Aurora Background Orbs */}
+      <div className="absolute top-10 left-1/4 w-[650px] h-[450px] bg-gradient-to-tr from-azure-400/25 via-sky-300/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-float-gentle" />
+      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-gradient-to-bl from-cyan-400/25 via-mint/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-float-reverse" />
+      <div className="absolute -bottom-10 left-10 w-[500px] h-[400px] bg-gradient-to-tr from-azure-600/15 via-navy/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column: Headline & Conversion Actions */}
+          {/* Left Column: VisionOS Value Headline & Direct Actions */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-5 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-azure-600" />
               <span className="text-azure-700 font-bold text-xs tracking-wide">
                 24/7 Helping Hands for Your Medical Billing &amp; Practice Needs
@@ -53,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               <button
                 type="button"
                 onClick={onOpenAuditModal}
-                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-azure-600 via-azure-500 to-azure-600 hover:from-azure-500 hover:to-azure-600 text-white font-bold text-sm shadow-md shadow-azure-500/30 transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-azure-600 via-azure-500 to-azure-600 hover:from-azure-500 hover:to-azure-600 text-white font-bold text-sm shadow-[0_10px_25px_rgba(35,139,238,0.35)] hover:shadow-[0_14px_30px_rgba(35,139,238,0.45)] transition-all flex items-center justify-center gap-2 active:scale-95"
               >
                 <Sparkles className="w-4 h-4 text-white" />
                 <span>Get a Free Practice Audit</span>
@@ -62,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
 
               <a
                 href="#specialties"
-                className="px-6 py-3.5 rounded-2xl glass-panel text-navy hover:text-azure-600 font-bold text-sm flex items-center justify-center gap-1.5 transition-colors"
+                className="px-6 py-3.5 rounded-2xl glass-card text-navy hover:text-azure-600 font-bold text-sm flex items-center justify-center gap-1.5 transition-colors"
               >
                 <span>Explore 22 Specialties</span>
                 <ChevronRight className="w-4 h-4 text-azure-600" />
@@ -86,14 +88,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
             </div>
           </div>
 
-          {/* Right Column: Complete Glassmorphism Hero Showcase */}
+          {/* Right Column: Floating VisionOS Glass Display */}
           <div className="lg:col-span-5 relative">
-            <div className="relative p-6 sm:p-7 rounded-3xl glass-card-static border-white/80">
+            
+            {/* Primary Frosted Glass Stage Card */}
+            <div className="relative p-6 sm:p-7 rounded-3xl glass-card-static border-white/90 shadow-[0_20px_50px_rgba(6,27,80,0.08)]">
               
-              {/* Card Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+              {/* Card Header Bar */}
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100/80">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-azure-50 text-azure-600 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-azure-50 text-azure-600 flex items-center justify-center shadow-xs">
                     <Activity className="w-5 h-5 text-azure-600" />
                   </div>
                   <div>
@@ -107,8 +111,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                 </span>
               </div>
 
-              {/* Sparkline Card */}
-              <div className="my-4 p-4 rounded-2xl bg-white/70 border border-white/80 shadow-xs">
+              {/* Card 1: 98.7% Clean Claims Sparkline */}
+              <div className="my-4 p-4 rounded-2xl glass-subcard">
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-1.5">
                     <FileCheck2 className="w-4 h-4 text-azure-600" />
@@ -123,12 +127,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                   <span className="text-xs text-slate-400">First-Pass Acceptance</span>
                 </div>
 
-                {/* Clean SVG Sparkline */}
+                {/* SVG Sparkline */}
                 <div className="h-9 w-full relative">
                   <svg className="w-full h-full" viewBox="0 0 200 36">
                     <defs>
-                      <linearGradient id="azureGlow2" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#238BEE" stopOpacity="0.25" />
+                      <linearGradient id="azureGlowHero" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#238BEE" stopOpacity="0.3" />
                         <stop offset="100%" stopColor="#238BEE" stopOpacity="0.0" />
                       </linearGradient>
                     </defs>
@@ -141,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                     />
                     <path
                       d="M0,28 Q30,24 60,18 T120,12 T160,6 T200,3 L200,36 L0,36 Z"
-                      fill="url(#azureGlow2)"
+                      fill="url(#azureGlowHero)"
                     />
                     <circle cx="200" cy="3" r="3.5" fill="#00D084" />
                   </svg>
@@ -150,7 +154,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
 
               {/* 2-Column Metrics */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3.5 rounded-2xl bg-white/70 border border-white/80 shadow-xs">
+                <div className="p-3.5 rounded-2xl glass-subcard">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-semibold text-slate-500">Days in A/R</span>
                     <Clock className="w-3.5 h-3.5 text-azure-600" />
@@ -162,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
                   <span className="text-[10px] text-slate-400 mt-1 block">Industry Avg: 48 Days</span>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white/70 border border-white/80 shadow-xs">
+                <div className="p-3.5 rounded-2xl glass-subcard">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-semibold text-slate-500">Net Collections</span>
                     <DollarSign className="w-3.5 h-3.5 text-mint-500" />
@@ -176,7 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
 
               {/* Security Seal */}
-              <div className="p-3 rounded-2xl bg-navy text-white flex items-center justify-between shadow-sm">
+              <div className="p-3.5 rounded-2xl glass-card-dark text-white flex items-center justify-between shadow-lg">
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-azure-300">
                     <Lock className="w-3.5 h-3.5" />
@@ -195,8 +199,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
             </div>
 
-            {/* Specular Floating Glass Pills */}
-            <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl glass-card-static border-white/90 hidden sm:flex items-center gap-2.5 shadow-md">
+            {/* Kinetic Floating Specular Capsules */}
+            <div className="absolute -bottom-4 -left-4 p-3 rounded-2xl glass-pill hidden sm:flex items-center gap-2.5 shadow-lg border-white/90 animate-float-gentle">
               <div className="w-8 h-8 rounded-xl bg-mint-50 flex items-center justify-center text-mint-500 font-black text-xs">
                 $
               </div>
@@ -206,7 +210,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAuditModal }) => {
               </div>
             </div>
 
-            <div className="absolute -top-4 -right-2 p-2.5 rounded-2xl glass-card-static border-white/90 hidden sm:flex items-center gap-2 shadow-md">
+            <div className="absolute -top-4 -right-2 p-2.5 rounded-2xl glass-pill hidden sm:flex items-center gap-2 shadow-lg border-white/90 animate-float-reverse">
               <div className="w-7 h-7 rounded-lg bg-azure-50 flex items-center justify-center text-azure-600 font-bold text-xs">
                 15+
               </div>

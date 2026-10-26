@@ -78,7 +78,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
           </p>
         </div>
 
-        {/* 2-Column Glassmorphism Calculator Container */}
+        {/* 2-Column VisionOS Glass Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-5xl mx-auto">
           
           {/* Controls Column (Left) */}
@@ -88,8 +88,8 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Step 1: Practice Metrics
                 </span>
-                <span className="text-[10px] font-bold text-azure-600 bg-azure-50 px-2 py-0.5 rounded-full">
-                  Live Calculator
+                <span className="text-[10px] font-bold text-azure-600 bg-azure-50 px-2 py-0.5 rounded-full border border-azure-100">
+                  Live Model
                 </span>
               </div>
 
@@ -116,7 +116,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   aria-label="Monthly Billing Volume"
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-medium">
+                <div className="flex justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
                   <span>$25K (Solo)</span>
                   <span>$750K (Group)</span>
                   <span>$1.5M+ (ASC/Facility)</span>
@@ -132,7 +132,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                       className={`text-[11px] px-2.5 py-1 rounded-full font-semibold transition-all ${
                         monthlyVolume === preset.value
                           ? 'bg-azure-600 text-white shadow-xs'
-                          : 'bg-white/80 hover:bg-white text-slate-600 border border-slate-200/50'
+                          : 'glass-subcard hover:bg-white text-slate-600'
                       }`}
                     >
                       {preset.label}
@@ -169,7 +169,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   aria-label="Current Denial Rate"
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-medium">
+                <div className="flex justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
                   <span>3% (Elite)</span>
                   <span>12% (Nat'l Avg)</span>
                   <span>25% (Critical Drag)</span>
@@ -178,9 +178,9 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             </div>
 
             {/* Reassurance Note */}
-            <div className="p-3 rounded-2xl bg-azure-50/70 border border-azure-100 flex items-start gap-2.5 mt-2">
+            <div className="p-3 rounded-2xl glass-subcard flex items-start gap-2.5 mt-2">
               <ShieldCheck className="w-4 h-4 text-azure-600 shrink-0 mt-0.5" />
-              <p className="text-[11px] text-slate-600 leading-relaxed">
+              <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
                 Calibrated against EHCS historical performance across 1,200+ practices and AAPC industry benchmarks.
               </p>
             </div>
@@ -197,13 +197,13 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   <h3 className="text-base font-bold text-white">Projected Practice Gains</h3>
                 </div>
                 <span className="bg-mint-500/20 text-mint font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-mint/30 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" />
                   SLA Guaranteed
                 </span>
               </div>
 
               {/* Main Recovery Metric */}
-              <div className="p-5 rounded-2xl bg-white/10 border border-white/15 mb-4">
+              <div className="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md mb-4 shadow-sm">
                 <span className="text-[10px] font-semibold text-azure-200 uppercase tracking-wider">
                   Projected Annual Revenue Recovery
                 </span>

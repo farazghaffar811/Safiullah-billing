@@ -47,16 +47,16 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
             return (
               <div
                 key={pillar.id}
-                className="p-6 sm:p-7 rounded-3xl glass-panel flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-3xl glass-card flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-azure-600 to-cyan-400 p-0.5 shadow-sm">
-                      <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-azure-600">
+                      <div className="w-full h-full bg-white/90 rounded-[14px] flex items-center justify-center text-azure-600">
                         <IconComponent className="w-6 h-6" />
                       </div>
                     </div>
-                    <span className="text-2xl font-black text-slate-300">
+                    <span className="text-2xl font-black text-slate-300 font-mono">
                       {pillar.number}
                     </span>
                   </div>
@@ -96,7 +96,7 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
                   <button
                     type="button"
                     onClick={onOpenAuditModal}
-                    className="w-8 h-8 rounded-full bg-azure-50 hover:bg-azure-600 text-azure-600 hover:text-white flex items-center justify-center transition-colors"
+                    className="w-8 h-8 rounded-full glass-subcard hover:bg-azure-600 text-azure-600 hover:text-white flex items-center justify-center transition-colors"
                     aria-label={`Learn more about ${pillar.title}`}
                   >
                     <ArrowRight className="w-3.5 h-3.5" />

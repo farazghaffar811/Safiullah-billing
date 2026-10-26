@@ -52,11 +52,11 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Carousel Container */}
         <div className="max-w-3xl mx-auto">
-          <div className="p-6 sm:p-9 rounded-3xl glass-card-static border-white/90">
+          <div className="p-6 sm:p-9 rounded-3xl glass-card-static border-white/90 shadow-[0_16px_45px_rgba(6,27,80,0.08)]">
             {/* Header Quote & Badge */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-azure-50 text-azure-600 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-azure-50 text-azure-600 flex items-center justify-center shadow-xs">
                   <Quote className="w-5 h-5" />
                 </div>
                 <div className="flex items-center gap-0.5 ml-1">
@@ -66,7 +66,7 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 bg-mint-50 border border-mint-100 px-3 py-1 rounded-full">
+              <div className="flex items-center gap-1.5 bg-mint-50/90 border border-mint-100 px-3 py-1 rounded-full shadow-xs">
                 <TrendingUp className="w-3.5 h-3.5 text-mint-500" />
                 <span className="text-xs font-black text-navy">{current.metric}</span>
                 <span className="text-[10px] text-slate-500 font-semibold">{current.metricLabel}</span>
@@ -81,7 +81,7 @@ export const TestimonialsSection: React.FC = () => {
             {/* Author */}
             <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-navy text-white font-bold text-xs flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-navy text-white font-bold text-xs flex items-center justify-center shadow-sm">
                   {current.avatarText}
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export const TestimonialsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={prevTestimonial}
-                className="w-9 h-9 rounded-full glass-pill hover:bg-white text-navy flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full glass-pill hover:bg-white text-navy flex items-center justify-center transition-colors shadow-xs"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -130,7 +130,7 @@ export const TestimonialsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={nextTestimonial}
-                className="w-9 h-9 rounded-full glass-pill hover:bg-white text-navy flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full glass-pill hover:bg-white text-navy flex items-center justify-center transition-colors shadow-xs"
                 aria-label="Next"
               >
                 <ChevronRight className="w-4 h-4" />

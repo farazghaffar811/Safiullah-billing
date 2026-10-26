@@ -80,7 +80,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
         </div>
 
         {/* Filter Bar & Quick Search */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8 p-2 rounded-2xl glass-card-static">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8 p-2 rounded-2xl glass-card-static border-white/80">
           
           {/* Segmented Control Pills */}
           <div className="flex flex-wrap items-center justify-center gap-1 w-full md:w-auto">
@@ -93,12 +93,12 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-white text-azure-600 shadow-sm border border-slate-200/50' 
+                      ? 'bg-white text-azure-600 shadow-sm border border-slate-200/60' 
                       : 'text-slate-600 hover:text-navy hover:bg-white/40'
                   }`}
                 >
                   <span>{tab.label}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-50 text-azure-700' : 'bg-slate-100 text-slate-500'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-50 text-azure-700 font-bold' : 'bg-slate-100 text-slate-500'}`}>
                     {tab.count}
                   </span>
                 </button>
@@ -124,11 +124,11 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
           {filteredSpecialties.map((spec) => (
             <div
               key={spec.id}
-              className="p-5 sm:p-6 rounded-3xl glass-panel flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-3xl glass-card flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-bold text-azure-700 bg-azure-50 border border-azure-100 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold text-azure-700 bg-azure-50/80 border border-azure-100 px-2.5 py-0.5 rounded-full">
                     {spec.categoryLabel}
                   </span>
                   <span className="text-[11px] font-black text-mint-500 bg-mint-50 border border-mint-100 px-2 py-0.5 rounded-md flex items-center gap-1">
@@ -155,7 +155,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                     {spec.codes.map((code, cIdx) => (
                       <span 
                         key={cIdx}
-                        className="text-[10px] font-mono font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded"
+                        className="text-[10px] font-mono font-medium text-slate-700 glass-subcard px-2 py-0.5 rounded"
                       >
                         {code}
                       </span>
@@ -164,7 +164,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                 </div>
 
                 {/* EHCS Billing Advantage */}
-                <div className="p-2.5 rounded-xl bg-white/70 border border-slate-200/50 mb-4">
+                <div className="p-2.5 rounded-xl glass-subcard mb-4">
                   <span className="text-[9px] font-bold text-azure-600 uppercase tracking-wider block mb-0.5">
                     EHCS Advantage
                   </span>
