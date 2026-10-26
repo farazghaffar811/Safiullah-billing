@@ -22,7 +22,7 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-glass-pill mb-3">
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Why Choose Elite Health Care Services (EHCS)
             </span>
@@ -40,24 +40,24 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
           </p>
         </div>
 
-        {/* 3 Core Pillar Cards */}
+        {/* 3 Core Pillar Cards with Tactile Neumorphic Extrusion */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
           {PILLARS.map((pillar) => {
             const IconComponent = getIcon(pillar.iconName);
             return (
               <div
                 key={pillar.id}
-                className="p-6 sm:p-7 rounded-3xl glass-card flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-3xl neu-glass-card flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-azure-600 to-cyan-400 p-0.5 shadow-sm">
-                      <div className="w-full h-full bg-white/90 rounded-[14px] flex items-center justify-center text-azure-600">
+                    <div className="w-12 h-12 rounded-2xl neu-glass-icon p-0.5 flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-tr from-azure-600 to-cyan-400 rounded-[14px] flex items-center justify-center text-white shadow-xs">
                         <IconComponent className="w-6 h-6" />
                       </div>
                     </div>
-                    <span className="text-2xl font-black text-slate-300 font-mono">
-                      {pillar.number}
+                    <span className="text-sm font-black text-slate-400 font-mono neu-glass-pill px-2.5 py-1 rounded-full">
+                      Pillar {pillar.number}
                     </span>
                   </div>
 
@@ -73,8 +73,8 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
                     {pillar.description}
                   </p>
 
-                  {/* Bullet Points */}
-                  <div className="space-y-2 mb-6">
+                  {/* Bullet Points in Recessed Neu-Glass Tray */}
+                  <div className="space-y-2 mb-6 p-3 rounded-2xl neu-glass-inset">
                     {pillar.bulletPoints.map((point, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-mint-500 shrink-0 mt-0.5" />
@@ -86,20 +86,20 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
                   </div>
                 </div>
 
-                {/* Bottom Highlight Stat */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-xl font-black text-navy">{pillar.stat}</span>
-                    <p className="text-[10px] font-semibold text-slate-500">{pillar.statLabel}</p>
+                {/* Bottom Highlight Stat with Raised Pill */}
+                <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                  <div className="p-2 rounded-xl neu-glass-pill">
+                    <span className="text-xl font-black text-navy block leading-none">{pillar.stat}</span>
+                    <p className="text-[10px] font-semibold text-slate-500 mt-0.5">{pillar.statLabel}</p>
                   </div>
 
                   <button
                     type="button"
                     onClick={onOpenAuditModal}
-                    className="w-8 h-8 rounded-full glass-subcard hover:bg-azure-600 text-azure-600 hover:text-white flex items-center justify-center transition-colors"
+                    className="w-9 h-9 rounded-full neu-glass-button text-azure-600 hover:text-azure-700 flex items-center justify-center transition-all"
                     aria-label={`Learn more about ${pillar.title}`}
                   >
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({ onOpenAuditModal
           <button
             type="button"
             onClick={onOpenAuditModal}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-azure-600 hover:text-azure-700 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-azure-600 hover:text-azure-700 neu-glass-pill px-4 py-2 rounded-full transition-all"
           >
             <span>See how EHCS outperforms conventional in-house billing teams</span>
             <ArrowRight className="w-3.5 h-3.5" />

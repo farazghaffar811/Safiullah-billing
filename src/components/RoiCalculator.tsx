@@ -59,7 +59,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-glass-pill mb-3">
             <Calculator className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Interactive Practice Revenue Simulator
@@ -78,23 +78,23 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
           </p>
         </div>
 
-        {/* 2-Column VisionOS Glass Container */}
+        {/* 2-Column Neu-Glass Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-5xl mx-auto">
           
           {/* Controls Column (Left) */}
-          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl glass-card-static flex flex-col justify-between">
+          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl neu-glass-card-static flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200/60 mb-5">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Step 1: Practice Metrics
                 </span>
-                <span className="text-[10px] font-bold text-azure-600 bg-azure-50 px-2 py-0.5 rounded-full border border-azure-100">
-                  Live Model
+                <span className="text-[10px] font-bold text-azure-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
+                  Live Calculator
                 </span>
               </div>
 
               {/* Slider 1: Monthly Practice Volume */}
-              <div className="mb-6">
+              <div className="mb-6 p-4 rounded-2xl neu-glass-inset">
                 <div className="flex items-center justify-between mb-2">
                   <label htmlFor="volume-slider" className="text-xs font-bold text-navy">
                     Monthly Billing Volume
@@ -116,7 +116,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   aria-label="Monthly Billing Volume"
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
+                <div className="flex justify-between text-[10px] text-slate-500 mt-2 font-medium">
                   <span>$25K (Solo)</span>
                   <span>$750K (Group)</span>
                   <span>$1.5M+ (ASC/Facility)</span>
@@ -132,7 +132,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                       className={`text-[11px] px-2.5 py-1 rounded-full font-semibold transition-all ${
                         monthlyVolume === preset.value
                           ? 'bg-azure-600 text-white shadow-xs'
-                          : 'glass-subcard hover:bg-white text-slate-600'
+                          : 'neu-glass-pill hover:text-azure-600 text-slate-600'
                       }`}
                     >
                       {preset.label}
@@ -142,13 +142,13 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
               </div>
 
               {/* Slider 2: Current Denial Rate */}
-              <div className="mb-4">
+              <div className="mb-4 p-4 rounded-2xl neu-glass-inset">
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <label htmlFor="denial-slider" className="text-xs font-bold text-navy block">
                       Current Denial Rate
                     </label>
-                    <span className="text-[10px] text-slate-400 font-normal">
+                    <span className="text-[10px] text-slate-500 font-normal">
                       National average across specialties: 12% - 15%
                     </span>
                   </div>
@@ -169,7 +169,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   aria-label="Current Denial Rate"
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
+                <div className="flex justify-between text-[10px] text-slate-500 mt-2 font-medium">
                   <span>3% (Elite)</span>
                   <span>12% (Nat'l Avg)</span>
                   <span>25% (Critical Drag)</span>
@@ -178,7 +178,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             </div>
 
             {/* Reassurance Note */}
-            <div className="p-3 rounded-2xl glass-subcard flex items-start gap-2.5 mt-2">
+            <div className="p-3 rounded-2xl neu-glass-pill flex items-start gap-2.5 mt-2">
               <ShieldCheck className="w-4 h-4 text-azure-600 shrink-0 mt-0.5" />
               <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
                 Calibrated against EHCS historical performance across 1,200+ practices and AAPC industry benchmarks.
@@ -186,8 +186,8 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             </div>
           </div>
 
-          {/* Results Column (Right: VisionOS Midnight Glass Display) */}
-          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl glass-card-dark text-white flex flex-col justify-between shadow-xl">
+          {/* Results Column (Right: VisionOS Midnight Neumorphic Glass) */}
+          <div className="lg:col-span-6 p-6 sm:p-7 rounded-3xl neu-glass-dark text-white flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                 <div>
@@ -196,13 +196,13 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
                   </span>
                   <h3 className="text-base font-bold text-white">Projected Practice Gains</h3>
                 </div>
-                <span className="bg-mint-500/20 text-mint font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-mint/30 flex items-center gap-1">
+                <span className="bg-mint-500/20 text-mint font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-mint/30 flex items-center gap-1 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" />
                   SLA Guaranteed
                 </span>
               </div>
 
-              {/* Main Recovery Metric */}
+              {/* Main Recovery Metric in Raised Dark Glass Tray */}
               <div className="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md mb-4 shadow-sm">
                 <span className="text-[10px] font-semibold text-azure-200 uppercase tracking-wider">
                   Projected Annual Revenue Recovery
@@ -257,7 +257,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenAuditModalWi
             <button
               type="button"
               onClick={handleClaimAudit}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-azure-500 to-azure-600 hover:from-azure-400 hover:to-azure-500 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-azure-600/30 transition-all flex items-center justify-center gap-1.5 active:scale-95"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-azure-500 to-azure-600 hover:from-azure-400 hover:to-azure-500 text-white font-extrabold text-xs sm:text-sm shadow-[0_6px_20px_rgba(35,139,238,0.4),inset_0_1px_1px_rgba(255,255,255,0.4)] transition-all flex items-center justify-center gap-1.5 active:scale-95"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Claim Your Detailed Practice Audit</span>

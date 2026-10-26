@@ -46,7 +46,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-glass-pill mb-3">
             <Layers className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Complete Billing Architecture
@@ -62,7 +62,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
           </p>
         </div>
 
-        {/* 10 Services Floating Glass Cards Grid */}
+        {/* 10 Services Floating Neu-Glass Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {SERVICES.map((service) => {
             const IconComponent = getServiceIcon(service.iconName);
@@ -70,21 +70,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
               <div
                 id={`service-${service.id}`}
                 key={service.id}
-                className="p-6 rounded-3xl glass-card flex flex-col justify-between"
+                className="p-6 rounded-3xl neu-glass-card flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar with Number & Icon */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-2xl bg-azure-50 text-azure-600 flex items-center justify-center shadow-xs">
+                    <div className="w-11 h-11 rounded-2xl neu-glass-icon flex items-center justify-center text-azure-600 shadow-xs">
                       <IconComponent className="w-5 h-5" />
                     </div>
                     <div className="flex items-center gap-1.5">
                       {service.badge && (
-                        <span className="text-[10px] font-bold text-azure-700 bg-azure-100/80 px-2 py-0.5 rounded-full border border-azure-200/50">
+                        <span className="text-[10px] font-bold text-azure-700 neu-glass-pill px-2.5 py-0.5 rounded-full">
                           {service.badge}
                         </span>
                       )}
-                      <span className="text-xs font-bold text-slate-400 font-mono">
+                      <span className="text-xs font-bold text-slate-400 font-mono neu-glass-pill px-2 py-0.5 rounded-full">
                         {service.number}
                       </span>
                     </div>
@@ -99,8 +99,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
                     {service.shortDesc}
                   </p>
 
-                  {/* Features */}
-                  <div className="space-y-1.5 mb-5">
+                  {/* Features in Recessed Neu-Glass Tray */}
+                  <div className="space-y-1.5 mb-5 p-3 rounded-2xl neu-glass-inset">
                     {service.features.slice(0, 3).map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-mint-500 shrink-0 mt-0.5" />
@@ -113,8 +113,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
                 </div>
 
                 {/* Card Footer */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-slate-600 glass-pill px-2.5 py-0.5 rounded-full">
+                <div className="pt-3 border-t border-slate-200/50 flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-slate-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
                     {service.sla}
                   </span>
 
@@ -132,8 +132,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
           })}
         </div>
 
-        {/* Bottom Banner */}
-        <div className="p-6 sm:p-7 rounded-3xl glass-card-static flex flex-col md:flex-row items-center justify-between gap-5">
+        {/* Bottom Banner with Tactile Neu-Glass Extrusion */}
+        <div className="p-6 sm:p-7 rounded-3xl neu-glass-card-static flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="max-w-xl text-center md:text-left">
             <h3 className="text-lg font-bold text-navy mb-1">
               Need a Customized Billing Combination?
@@ -145,7 +145,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
           <button
             type="button"
             onClick={onOpenAuditModal}
-            className="px-5 py-2.5 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs shadow-md shadow-azure-600/25 transition-all flex items-center gap-1.5 shrink-0 active:scale-95"
+            className="px-5 py-2.5 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-bold text-xs shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5 shrink-0 active:scale-95"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Request Practice Proposal</span>
@@ -162,21 +162,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
             className="fixed inset-0 bg-navy/60 backdrop-blur-md"
           />
 
-          <div className="relative w-full max-w-xl p-6 sm:p-7 rounded-3xl glass-card-static bg-white/95 border-white shadow-2xl z-10 my-auto">
+          <div className="relative w-full max-w-xl p-6 sm:p-7 rounded-3xl neu-glass-card-static bg-white/95 border-white shadow-2xl z-10 my-auto">
             <button
               type="button"
               onClick={() => setSelectedService(null)}
-              className="absolute top-5 right-5 p-1.5 rounded-full text-slate-400 hover:text-navy hover:bg-slate-100 transition-colors focus:outline-none"
+              className="absolute top-5 right-5 p-1.5 rounded-full neu-glass-button text-slate-400 hover:text-navy transition-colors focus:outline-none"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-bold text-azure-600 bg-azure-50 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-bold text-azure-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
                 Service {selectedService.number} of 10
               </span>
               {selectedService.badge && (
-                <span className="text-[10px] font-semibold text-slate-600 glass-subcard px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-semibold text-slate-600 neu-glass-pill px-2.5 py-0.5 rounded-full">
                   {selectedService.badge}
                 </span>
               )}
@@ -186,8 +186,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
               {selectedService.title}
             </h3>
 
-            <div className="p-3.5 rounded-2xl glass-subcard mb-4">
-              <p className="text-xs text-slate-700 leading-relaxed">
+            <div className="p-3.5 rounded-2xl neu-glass-inset mb-4">
+              <p className="text-xs text-slate-700 leading-relaxed font-normal">
                 {selectedService.fullCopy}
               </p>
             </div>
@@ -197,7 +197,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
               {selectedService.features.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-1.5 p-2 rounded-xl glass-subcard">
+                <div key={idx} className="flex items-start gap-1.5 p-2 rounded-xl neu-glass-pill">
                   <CheckCircle2 className="w-3.5 h-3.5 text-mint-500 shrink-0 mt-0.5" />
                   <span className="text-xs text-slate-700 font-medium">
                     {feat}
@@ -206,7 +206,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5 p-3 rounded-2xl glass-subcard mb-5 text-xs">
+            <div className="grid grid-cols-2 gap-2.5 p-3 rounded-2xl neu-glass-inset mb-5 text-xs">
               <div>
                 <span className="text-[9px] font-bold text-slate-400 uppercase block">Execution SLA</span>
                 <span className="font-bold text-navy">{selectedService.sla}</span>
@@ -217,11 +217,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/50">
               <button
                 type="button"
                 onClick={() => setSelectedService(null)}
-                className="px-4 py-2 rounded-xl text-slate-600 hover:text-navy text-xs font-bold transition-colors"
+                className="px-4 py-2 rounded-xl neu-glass-button text-slate-600 hover:text-navy text-xs font-bold transition-colors"
               >
                 Close
               </button>
@@ -231,7 +231,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenAuditMod
                   setSelectedService(null);
                   onOpenAuditModal();
                 }}
-                className="px-4 py-2 rounded-xl bg-azure-600 hover:bg-azure-500 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl bg-azure-600 hover:bg-azure-500 text-white text-xs font-bold shadow-md shadow-azure-600/30 transition-all flex items-center gap-1.5"
               >
                 <Sparkles className="w-3 h-3" />
                 <span>Request Audit for This Service</span>

@@ -29,11 +29,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAuditModal }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Frosted Trust & Certification Badges Strip */}
-        <div className="p-5 rounded-3xl glass-card-dark mb-12">
+        {/* Dark Neumorphic Trust & Certification Badges Strip */}
+        <div className="p-5 rounded-3xl neu-glass-dark mb-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-between text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <ShieldCheck className="w-5 h-5 text-mint shrink-0" />
+              <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-mint shadow-xs">
+                <ShieldCheck className="w-5 h-5 shrink-0" />
+              </div>
               <div>
                 <span className="text-xs font-bold text-white block">HIPAA Compliant</span>
                 <span className="text-[10px] text-slate-400">Security Rule Certified</span>
@@ -41,7 +43,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAuditModal }) => {
             </div>
 
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <Lock className="w-5 h-5 text-azure-400 shrink-0" />
+              <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-azure-400 shadow-xs">
+                <Lock className="w-5 h-5 shrink-0" />
+              </div>
               <div>
                 <span className="text-xs font-bold text-white block">HITECH Certified</span>
                 <span className="text-[10px] text-slate-400">Strict Privacy Protocol</span>
@@ -49,7 +53,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAuditModal }) => {
             </div>
 
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <Award className="w-5 h-5 text-amber-400 shrink-0" />
+              <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shadow-xs">
+                <Award className="w-5 h-5 shrink-0" />
+              </div>
               <div>
                 <span className="text-xs font-bold text-white block">AAPC Certified</span>
                 <span className="text-[10px] text-slate-400">Senior Medical Coders</span>
@@ -57,7 +63,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAuditModal }) => {
             </div>
 
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
+              <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-cyan-400 shadow-xs">
+                <CheckCircle2 className="w-5 h-5 shrink-0" />
+              </div>
               <div>
                 <span className="text-xs font-bold text-white block">256-Bit SSL Encryption</span>
                 <span className="text-[10px] text-slate-400">Bank-Grade EDI Tunnel</span>

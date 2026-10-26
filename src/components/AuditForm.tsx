@@ -100,12 +100,12 @@ export const AuditForm: React.FC<AuditFormProps> = ({
 
   if (isSubmitted) {
     return (
-      <div className="p-6 sm:p-8 rounded-3xl glass-card-static text-center flex flex-col items-center justify-center">
-        <div className="w-12 h-12 rounded-2xl bg-mint-50 border border-mint-100 text-mint-500 flex items-center justify-center mb-3">
-          <CheckCircle2 className="w-6 h-6" />
+      <div className="p-6 sm:p-8 rounded-3xl neu-glass-card-static text-center flex flex-col items-center justify-center">
+        <div className="w-14 h-14 rounded-2xl neu-glass-icon text-mint-500 flex items-center justify-center mb-3">
+          <CheckCircle2 className="w-7 h-7" />
         </div>
 
-        <span className="text-[10px] font-bold uppercase tracking-wider text-azure-600 bg-azure-50 px-2.5 py-0.5 rounded-full mb-2">
+        <span className="text-[10px] font-bold uppercase tracking-wider text-azure-600 neu-glass-pill px-3 py-1 rounded-full mb-2">
           Audit Request Received
         </span>
 
@@ -117,7 +117,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
           Your confidential practice audit request for <strong className="text-navy">{formData.practiceName}</strong> has been assigned to our Senior Billing Director. We will reach out within 2 hours.
         </p>
 
-        <div className="w-full max-w-xs p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-left text-xs space-y-1 mb-4">
+        <div className="w-full max-w-xs p-3.5 rounded-2xl neu-glass-inset text-left text-xs space-y-1.5 mb-4">
           <div className="flex justify-between">
             <span className="text-slate-500">Contact:</span>
             <span className="font-semibold text-navy">{formData.email}</span>
@@ -152,7 +152,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
             placeholder="Dr. Alexander Wright, MD"
             value={formData.fullName}
             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-            className={`w-full px-3.5 py-2 rounded-xl text-xs glass-input text-slate-800 ${
+            className={`w-full px-3.5 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 ${
               errors.fullName ? 'border-red-400 bg-red-50/30' : ''
             }`}
           />
@@ -173,7 +173,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
             placeholder="Apex Surgical & Medical Institute"
             value={formData.practiceName}
             onChange={(e) => setFormData({ ...formData, practiceName: e.target.value })}
-            className={`w-full px-3.5 py-2 rounded-xl text-xs glass-input text-slate-800 ${
+            className={`w-full px-3.5 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 ${
               errors.practiceName ? 'border-red-400 bg-red-50/30' : ''
             }`}
           />
@@ -196,7 +196,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
             placeholder="billing@apexmedical.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`w-full px-3.5 py-2 rounded-xl text-xs glass-input text-slate-800 ${
+            className={`w-full px-3.5 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 ${
               errors.email ? 'border-red-400 bg-red-50/30' : ''
             }`}
           />
@@ -217,7 +217,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
             placeholder="(555) 000-0000"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className={`w-full px-3.5 py-2 rounded-xl text-xs glass-input text-slate-800 ${
+            className={`w-full px-3.5 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 ${
               errors.phone ? 'border-red-400 bg-red-50/30' : ''
             }`}
           />
@@ -238,7 +238,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
           <select
             value={formData.specialty}
             onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
-            className="w-full px-3 py-2 rounded-xl text-xs glass-input text-slate-800 bg-white"
+            className="w-full px-3 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 bg-white"
           >
             {SPECIALTIES.map((spec) => (
               <option key={spec.id} value={spec.name}>
@@ -256,7 +256,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
           <select
             value={formData.billingVolume}
             onChange={(e) => setFormData({ ...formData, billingVolume: e.target.value })}
-            className="w-full px-3 py-2 rounded-xl text-xs glass-input text-slate-800 bg-white"
+            className="w-full px-3 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 bg-white"
           >
             <option value="<$50k">&lt; $50,000 / month (Emerging Clinic)</option>
             <option value="$50k-$150k">$50,000 - $150,000 / month (Standard Practice)</option>
@@ -274,7 +274,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
         <select
           value={formData.ehrSoftware}
           onChange={(e) => setFormData({ ...formData, ehrSoftware: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl text-xs glass-input text-slate-800 bg-white"
+          className="w-full px-3 py-2.5 rounded-xl text-xs neu-glass-input text-slate-800 bg-white"
         >
           {EHR_PLATFORMS.map((ehr, idx) => (
             <option key={idx} value={ehr}>{ehr}</option>
@@ -293,7 +293,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
           placeholder="E.g., high denial rate on surgical modifiers, aging A/R over 90 days, or credentialing needs..."
           value={formData.notes}
           onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-          className="w-full px-3.5 py-1.5 rounded-xl text-xs glass-input text-slate-800 resize-none"
+          className="w-full px-3.5 py-2 rounded-xl text-xs neu-glass-input text-slate-800 resize-none"
         />
       </div>
 
@@ -319,7 +319,7 @@ export const AuditForm: React.FC<AuditFormProps> = ({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3 rounded-xl bg-gradient-to-r from-azure-600 via-azure-500 to-azure-600 hover:from-azure-500 hover:to-azure-600 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-azure-500/25 transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-75"
+        className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-azure-600 via-azure-500 to-azure-600 hover:from-azure-500 hover:to-azure-600 text-white font-extrabold text-xs sm:text-sm shadow-[0_6px_20px_rgba(35,139,238,0.4),inset_0_1px_1px_rgba(255,255,255,0.4)] transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-75"
       >
         {isSubmitting ? (
           <span>Analyzing Practice Profile...</span>

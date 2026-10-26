@@ -60,7 +60,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-glass-pill mb-3">
             <Stethoscope className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Cross-Disciplinary Medical Billing
@@ -79,11 +79,11 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
           </p>
         </div>
 
-        {/* Filter Bar & Quick Search */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8 p-2 rounded-2xl glass-card-static border-white/80">
+        {/* Filter Bar with Recessed Neumorphic Track & Carved Search */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8 p-2 rounded-3xl neu-glass-inset">
           
           {/* Segmented Control Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1 w-full md:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 w-full md:w-auto">
             {filterTabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -91,14 +91,14 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  className={`px-3.5 py-1.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-white text-azure-600 shadow-sm border border-slate-200/60' 
+                      ? 'neu-glass-pill text-azure-600 shadow-sm' 
                       : 'text-slate-600 hover:text-navy hover:bg-white/40'
                   }`}
                 >
                   <span>{tab.label}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-50 text-azure-700 font-bold' : 'bg-slate-100 text-slate-500'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-azure-50 text-azure-700 font-bold' : 'bg-slate-200/60 text-slate-500'}`}>
                     {tab.count}
                   </span>
                 </button>
@@ -106,7 +106,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
             })}
           </div>
 
-          {/* Search Input */}
+          {/* Carved/Sunken Search Input */}
           <div className="relative w-full md:w-64">
             <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
@@ -114,24 +114,24 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
               placeholder="Search specialty or code..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl glass-input placeholder-slate-400 text-slate-700"
+              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl neu-glass-input placeholder-slate-400 text-slate-700"
             />
           </div>
         </div>
 
-        {/* 22 Specialties Cards Grid */}
+        {/* 22 Specialties Cards Grid in Raised Neu-Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {filteredSpecialties.map((spec) => (
             <div
               key={spec.id}
-              className="p-5 sm:p-6 rounded-3xl glass-card flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-3xl neu-glass-card flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-bold text-azure-700 bg-azure-50/80 border border-azure-100 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold text-azure-700 neu-glass-pill px-2.5 py-0.5 rounded-full">
                     {spec.categoryLabel}
                   </span>
-                  <span className="text-[11px] font-black text-mint-500 bg-mint-50 border border-mint-100 px-2 py-0.5 rounded-md flex items-center gap-1">
+                  <span className="text-[11px] font-black text-mint-500 neu-glass-pill px-2 py-0.5 rounded-md flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-mint" />
                     {spec.cleanClaimRate} Clean
                   </span>
@@ -145,8 +145,8 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                   {spec.description}
                 </p>
 
-                {/* Codes */}
-                <div className="mb-3">
+                {/* Codes Tray */}
+                <div className="mb-3 p-2.5 rounded-2xl neu-glass-inset">
                   <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                     <Tag className="w-3 h-3 text-slate-400" />
                     <span>Coding Focus</span>
@@ -155,7 +155,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                     {spec.codes.map((code, cIdx) => (
                       <span 
                         key={cIdx}
-                        className="text-[10px] font-mono font-medium text-slate-700 glass-subcard px-2 py-0.5 rounded"
+                        className="text-[10px] font-mono font-medium text-slate-700 neu-glass-pill px-2 py-0.5 rounded"
                       >
                         {code}
                       </span>
@@ -163,8 +163,8 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                   </div>
                 </div>
 
-                {/* EHCS Billing Advantage */}
-                <div className="p-2.5 rounded-xl glass-subcard mb-4">
+                {/* EHCS Billing Advantage in Raised Pill */}
+                <div className="p-2.5 rounded-2xl neu-glass-pill mb-4">
                   <span className="text-[9px] font-bold text-azure-600 uppercase tracking-wider block mb-0.5">
                     EHCS Advantage
                   </span>
@@ -174,12 +174,12 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
                 </div>
               </div>
 
-              <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-2.5 border-t border-slate-200/50 flex items-center justify-between">
                 <span className="text-[10px] text-slate-400 font-medium">AAPC Certified</span>
                 <button
                   type="button"
                   onClick={() => handleAuditClick(spec.name)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-azure-600 hover:text-azure-700 transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-azure-600 hover:text-azure-700 neu-glass-button px-2.5 py-1 rounded-xl transition-all"
                 >
                   <span>Audit Specialty</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -190,7 +190,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
         </div>
 
         {filteredSpecialties.length === 0 && (
-          <div className="text-center py-8 p-6 rounded-2xl glass-card-static max-w-sm mx-auto">
+          <div className="text-center py-8 p-6 rounded-3xl neu-glass-card-static max-w-sm mx-auto">
             <p className="text-xs text-slate-600 mb-2">No matching specialty found for "{searchQuery}".</p>
             <button
               type="button"

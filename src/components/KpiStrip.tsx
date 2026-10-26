@@ -10,7 +10,7 @@ export const KpiStrip: React.FC = () => {
       desc: "Proven revenue recovery leadership since 2009",
       icon: Award,
       accent: "text-azure-600",
-      bgAccent: "bg-azure-50/80"
+      bgAccent: "bg-azure-50"
     },
     {
       stat: "$250M+",
@@ -18,7 +18,7 @@ export const KpiStrip: React.FC = () => {
       desc: "High-volume precision EDI processing power",
       icon: DollarSign,
       accent: "text-azure-600",
-      bgAccent: "bg-cyan-50/80"
+      bgAccent: "bg-cyan-50"
     },
     {
       stat: "98.7%",
@@ -26,7 +26,7 @@ export const KpiStrip: React.FC = () => {
       desc: "Industry-leading first-pass clearinghouse approval",
       icon: CheckCircle2,
       accent: "text-mint-500",
-      bgAccent: "bg-emerald-50/80"
+      bgAccent: "bg-emerald-50"
     },
     {
       stat: "35% Avg.",
@@ -34,7 +34,7 @@ export const KpiStrip: React.FC = () => {
       desc: "Rapid cash flow velocity and denial reduction",
       icon: TrendingUp,
       accent: "text-indigo-600",
-      bgAccent: "bg-indigo-50/80"
+      bgAccent: "bg-indigo-50"
     }
   ];
 
@@ -52,21 +52,23 @@ export const KpiStrip: React.FC = () => {
           </h2>
         </div>
 
-        {/* 4 Frosted Glass KPI Cards with Floating Levitation */}
+        {/* 4 Raised Neu-Glass KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {kpis.map((kpi, idx) => {
             const IconComponent = kpi.icon;
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-3xl glass-card flex flex-col justify-between group"
+                className="p-5 sm:p-6 rounded-3xl neu-glass-card flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    <div className={`w-10 h-10 rounded-2xl ${kpi.bgAccent} flex items-center justify-center ${kpi.accent} group-hover:scale-110 transition-transform duration-200 shadow-xs`}>
-                      <IconComponent className="w-5 h-5" />
+                    <div className="w-11 h-11 rounded-2xl neu-glass-icon flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <IconComponent className={`w-5 h-5 ${kpi.accent}`} />
                     </div>
-                    <span className="text-[11px] font-bold text-slate-400 font-mono">0{idx + 1}</span>
+                    <span className="text-[11px] font-bold text-slate-400 font-mono neu-glass-pill px-2 py-0.5 rounded-full">
+                      0{idx + 1}
+                    </span>
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-navy tracking-tight mb-1">
@@ -84,11 +86,11 @@ export const KpiStrip: React.FC = () => {
           })}
         </div>
 
-        {/* EHR Platform Integration Pill Strip */}
-        <div className="p-4 sm:p-5 rounded-3xl glass-card-static border-white/85 shadow-sm">
+        {/* EHR Platform Strip with Recessed Neu-Glass Tray */}
+        <div className="p-4 sm:p-5 rounded-3xl neu-glass-inset">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5 shrink-0 text-center md:text-left">
-              <div className="w-8 h-8 rounded-xl bg-azure-50 text-azure-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl neu-glass-icon flex items-center justify-center text-azure-600">
                 <Layers className="w-4 h-4" />
               </div>
               <div>
@@ -101,7 +103,7 @@ export const KpiStrip: React.FC = () => {
               {EHR_PLATFORMS.map((platform, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 rounded-full text-[11px] font-medium text-slate-700 glass-subcard hover:border-azure-400 hover:text-azure-600 transition-colors"
+                  className="px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-700 neu-glass-pill hover:text-azure-600 transition-colors"
                 >
                   {platform}
                 </span>

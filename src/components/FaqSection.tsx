@@ -15,7 +15,7 @@ export const FaqSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-glass-pill mb-3">
             <HelpCircle className="w-3.5 h-3.5 text-azure-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-azure-600">
               Clear Answers for Healthcare Providers
@@ -31,15 +31,15 @@ export const FaqSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordion List with Frosted Glass Cards */}
-        <div className="space-y-3">
+        {/* Accordion List with Raised Neu-Glass Modules */}
+        <div className="space-y-3.5">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
 
             return (
               <div
                 key={faq.id}
-                className="rounded-3xl glass-card-static overflow-hidden transition-all duration-200 border-white/85"
+                className="rounded-3xl neu-glass-card-static overflow-hidden transition-all duration-200"
               >
                 <button
                   type="button"
@@ -50,14 +50,16 @@ export const FaqSection: React.FC = () => {
                   <span className="text-sm sm:text-base font-bold text-navy leading-snug">
                     {faq.question}
                   </span>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'bg-azure-600 text-white rotate-180' : 'glass-pill text-azure-600'}`}>
-                    <ChevronDown className="w-3.5 h-3.5" />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'bg-azure-600 text-white rotate-180 shadow-xs' : 'neu-glass-button text-azure-600'}`}>
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="p-4 sm:p-5 pt-0 border-t border-slate-100/80 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {faq.answer}
+                  <div className="p-4 sm:p-5 pt-0">
+                    <div className="p-4 rounded-2xl neu-glass-inset text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {faq.answer}
+                    </div>
                   </div>
                 )}
               </div>
@@ -66,7 +68,7 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Bottom Support Callout */}
-        <div className="mt-8 text-center p-4 rounded-3xl glass-card-static border-white/85">
+        <div className="mt-8 text-center p-4 rounded-3xl neu-glass-card-static">
           <p className="text-xs font-semibold text-slate-700">
             Have a specialized question regarding payer contracts or ASC carve-outs?
           </p>
